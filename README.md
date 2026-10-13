@@ -49,7 +49,13 @@ Open `http://127.0.0.1:8000`. The home page opens the team directory; use the na
 
 ## Deploying to Vercel
 
-The repository includes a Vercel PHP function entry point and configuration. In your Vercel project, use the repository root as the Root Directory and leave the configured build command (`npm run build`) and output directory (`public`) unchanged. The deployment builds frontend assets with Vite and serves Laravel through the `vercel-php` runtime.
+The repository includes a Vercel PHP function entry point and configuration. In your Vercel project, use the repository root as the Root Directory and leave the configured build command (`npm run build`) and output directory (`public`) unchanged. The deployment builds frontend assets with Vite and serves Laravel through the `vercel-php` runtime. The build skips Wayfinder's PHP-backed Vite hook on Vercel and uses the generated TypeScript route/action files committed under `resources/js/routes`, `resources/js/actions`, and `resources/js/wayfinder`.
+
+Whenever Laravel routes or controller actions change, regenerate and commit their TypeScript definitions before deploying:
+
+```powershell
+php artisan wayfinder:generate --with-form
+```
 
 Before deploying, add these environment variables in **Vercel → Project → Settings → Environment Variables** for Production (and Preview if needed):
 
