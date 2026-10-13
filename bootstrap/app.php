@@ -29,4 +29,13 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
         );
-    })->create();
+
+        $exceptions->report(function (\Throwable $e): void {
+            error_log(
+                'ORIGINAL LARAVEL ERROR: '.get_class($e).' - '.$e->getMessage()
+            );
+
+            error_log($e->getTraceAsString());
+        });
+    })
+    ->create();
