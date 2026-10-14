@@ -17,7 +17,7 @@ class TournamentFactory extends Factory
 
         return [
             'name' => fake()->city().' Cup',
-            'sport' => 'football',
+            'sport' => 'basketball',
             'tournament_type' => fake()->randomElement(['league', 'knockout', 'group_knockout', 'round_robin']),
             'max_teams' => 16,
             'start_date' => $startDate->format('Y-m-d'),

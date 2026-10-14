@@ -4,7 +4,6 @@ namespace App\Http\Responses;
 
 use App\Http\Responses\Concerns\RedirectsToCurrentTeam;
 use Illuminate\Http\JsonResponse;
-use Laravel\Fortify\Fortify;
 use Laravel\Passkeys\Contracts\PasskeyLoginResponse as PasskeyLoginResponseContract;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -14,11 +13,7 @@ class PasskeyLoginResponse implements PasskeyLoginResponseContract
 
     public function toResponse($request): Response
     {
-        $user = $request->user();
-        $team = $user?->currentTeam ?? $user?->personalTeam();
-        $redirect = $team
-            ? route('dashboard', ['current_team' => $team->slug])
-            : Fortify::redirects('login');
+        $redirect = $this->teamDashboardPath($request);
 
         return $request->wantsJson()
             ? new JsonResponse(['redirect' => redirect()->intended($redirect)->getTargetUrl()], 200)

@@ -1,80 +1,109 @@
-# Sports Tournament Management System
+# Basketball Tournament Management System
 
-A Laravel application for managing sports teams, players, tournaments, matches, and score events. It uses Laravel MVC, Eloquent relationships, resource routes, server-side validation, Blade, and Bootstrap 5.
+A Laravel application for managing basketball teams, players, tournaments, matches, and score events. The app uses Laravel MVC, Eloquent relationships, named resource routes, server-side validation, reusable Blade layouts, and Bootstrap 5.
+
+## Features
+
+- Dashboard totals, upcoming fixtures, and recent results
+- Create, view, edit, and delete teams, players, tournaments, matches, and score events
+- Team rosters and related tournament, fixture, and score-event details
+- Server-side validation with clear errors and retained form input
+- Match score updates from recorded score events
+- Search/filter controls, pagination, and responsive Bootstrap navigation
+- Repeatable sample tournament data for a quick demo
 
 ## Requirements
 
-- PHP 8.3 or newer with the extensions required by Laravel
-- Composer
-- Node.js and npm for the starter kit's frontend assets
+- PHP 8.3+ and the extensions required by Laravel
+- Composer 2
+- Node.js 22+ and npm
+- SQLite (default) or a configured MySQL database
 
-## Setup
+## Quick start from a Git clone
 
-1. Install PHP dependencies:
-
-    ```powershell
-    composer install
-    ```
-
-2. Create the local environment file and application key:
-
-    ```powershell
-    Copy-Item .env.example .env
-    php artisan key:generate
-    ```
-
-3. The example environment uses SQLite. Create its local database file if it does not exist, then migrate and seed the sample tournament data:
-
-    ```powershell
-    if (-not (Test-Path database\database.sqlite)) { New-Item database\database.sqlite -ItemType File }
-    php artisan migrate --seed
-    ```
-
-    For MySQL, configure the `DB_*` values in `.env` before migrating.
-
-4. Install and build the frontend assets:
-
-    ```powershell
-    npm install
-    npm run build
-    ```
-
-5. Start the development server:
-
-    ```powershell
-    php artisan serve
-    ```
-
-Open `http://127.0.0.1:8000`. The home page opens the team directory; use the navigation to access the dashboard, tournaments, players, matches, and score events.
-
-## Domain tables and relationships
-
-The project has exactly five tournament-domain tables:
-
-| Table          | Relationships                                                   |
-| -------------- | --------------------------------------------------------------- |
-| `sports_teams` | Has players and home/away matches                               |
-| `players`      | Belongs to a sports team; has score events                      |
-| `tournaments`  | Has matches                                                     |
-| `matches`      | Belongs to a tournament and two sports teams; has score events  |
-| `scores`       | Belongs to a match, player, team, and optional assisting player |
-
-Laravel's user, cache, queue, and starter-kit team tables remain separate framework/account tables. The five domain migrations are in `database/migrations`, and factories plus repeatable sample data are in `database/factories` and `database/seeders`.
-
-Score events validate that the player belongs to the selected participating team. Goal events update the match result, and editing or deleting an event recalculates it. Teams, players, tournaments, and matches with dependent records cannot be deleted until those records are removed.
-
-## Tests
-
-Run the focused tournament-management feature tests with:
-
-```powershell
-php artisan test --filter=SportsTournamentTest
+```bash
+git clone <repository-url>
+cd <repository-folder>
+composer setup
+php artisan serve
 ```
 
-Run the complete suite with:
+Open <http://127.0.0.1:8000>. `composer setup` installs dependencies, creates `.env` from `.env.example` when needed, generates an application key, creates the default SQLite file, migrates and seeds the database, then builds the frontend assets.
+
+### Windows PowerShell
 
 ```powershell
+git clone <repository-url>
+Set-Location <repository-folder>
+composer setup
+php artisan serve
+```
+
+For MySQL, edit `.env` and set `DB_CONNECTION=mysql` plus the `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` values before running migrations. Never commit `.env` or real credentials.
+
+### Manual setup
+
+If you prefer to run setup steps individually:
+
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+```
+
+On Windows PowerShell, replace the copy command with `Copy-Item .env.example .env`. For SQLite, make sure `database/database.sqlite` exists, then run:
+
+```bash
+php artisan migrate --seed
+npm ci
+npm run build
+php artisan serve
+```
+
+## Data model
+
+The project has exactly five tournament-domain tables and their related Eloquent models:
+
+| Table          | Relationships                                                           |
+| -------------- | ----------------------------------------------------------------------- |
+| `sports_teams` | Has players and home/away matches                                       |
+| `players`      | Belongs to a team; has recorded score events                            |
+| `tournaments`  | Has matches                                                             |
+| `matches`      | Belongs to a tournament and home/away teams; has score events           |
+| `scores`       | Belongs to a match, player, and team; may reference an assisting player |
+
+Framework and account tables (such as users, sessions, cache, and starter-kit teams) are separate from these five domain tables. The domain migrations are under `database/migrations`; factories and the sample seeder are under `database/factories` and `database/seeders`.
+
+Score events are checked against the match’s participating teams and the player’s team. Recording, updating, or deleting an event recalculates the match result. Related records are protected from invalid deletion.
+
+## Database commands
+
+Seed sample records into an already-migrated database:
+
+```bash
+php artisan db:seed
+```
+
+Reset and rebuild the database, then reseed it:
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+**Warning:** `migrate:fresh` deletes all tables and data in the selected database. Use it only for a disposable local database.
+
+## Tests and quality checks
+
+```bash
 php artisan test
+composer lint:check
+composer types:check
+npm run check
+npm run types:check
 ```
 
-Do not commit `.env` or database credentials. Use `.env.example` as the safe environment template.
+The GitHub Actions workflow runs the setup and CI checks on pushes to `main` and pull requests.
+
+## GitHub submission
+
+Commit the source code, migrations, tests, factories, seeders, and `.env.example`. Keep `.env`, database files containing real data, credentials, and generated build artifacts out of Git. The repository's `.gitignore` excludes local environment files and generated dependencies.

@@ -1,830 +1,628 @@
-import {
-    queryParams,
-    type RouteQueryOptions,
-    type RouteDefinition,
-    type RouteFormDefinition,
-    applyUrlDefaults,
-} from './../../wayfinder';
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
- * @see \App\Http\Controllers\PlayerController::index
+* @see \App\Http\Controllers\PlayerController::index
  * @see app/Http/Controllers/PlayerController.php:18
  * @route '/players'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(options),
     method: 'get',
-});
+})
 
 index.definition = {
-    methods: ['get', 'head'],
+    methods: ["get","head"],
     url: '/players',
-} satisfies RouteDefinition<['get', 'head']>;
+} satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see \App\Http\Controllers\PlayerController::index
+* @see \App\Http\Controllers\PlayerController::index
  * @see app/Http/Controllers/PlayerController.php:18
  * @route '/players'
  */
 index.url = (options?: RouteQueryOptions) => {
-    return index.definition.url + queryParams(options);
-};
+    return index.definition.url + queryParams(options)
+}
 
 /**
- * @see \App\Http\Controllers\PlayerController::index
+* @see \App\Http\Controllers\PlayerController::index
  * @see app/Http/Controllers/PlayerController.php:18
  * @route '/players'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(options),
     method: 'get',
-});
+})
 /**
- * @see \App\Http\Controllers\PlayerController::index
+* @see \App\Http\Controllers\PlayerController::index
  * @see app/Http/Controllers/PlayerController.php:18
  * @route '/players'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: index.url(options),
     method: 'head',
-});
+})
 
-/**
- * @see \App\Http\Controllers\PlayerController::index
+    /**
+* @see \App\Http\Controllers\PlayerController::index
  * @see app/Http/Controllers/PlayerController.php:18
  * @route '/players'
  */
-const indexForm = (
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'get'> => ({
-    action: index.url(options),
-    method: 'get',
-});
+    const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: index.url(options),
+        method: 'get',
+    })
 
-/**
- * @see \App\Http\Controllers\PlayerController::index
+            /**
+* @see \App\Http\Controllers\PlayerController::index
  * @see app/Http/Controllers/PlayerController.php:18
  * @route '/players'
  */
-indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: index.url(options),
-    method: 'get',
-});
-/**
- * @see \App\Http\Controllers\PlayerController::index
+        indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: index.url(options),
+            method: 'get',
+        })
+            /**
+* @see \App\Http\Controllers\PlayerController::index
  * @see app/Http/Controllers/PlayerController.php:18
  * @route '/players'
  */
-indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: index.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        },
-    }),
-    method: 'get',
-});
-
-index.form = indexForm;
+        indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: index.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    index.form = indexForm
 /**
- * @see \App\Http\Controllers\PlayerController::create
+* @see \App\Http\Controllers\PlayerController::create
  * @see app/Http/Controllers/PlayerController.php:55
  * @route '/players/create'
  */
-export const create = (
-    options?: RouteQueryOptions,
-): RouteDefinition<'get'> => ({
+export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: create.url(options),
     method: 'get',
-});
+})
 
 create.definition = {
-    methods: ['get', 'head'],
+    methods: ["get","head"],
     url: '/players/create',
-} satisfies RouteDefinition<['get', 'head']>;
+} satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see \App\Http\Controllers\PlayerController::create
+* @see \App\Http\Controllers\PlayerController::create
  * @see app/Http/Controllers/PlayerController.php:55
  * @route '/players/create'
  */
 create.url = (options?: RouteQueryOptions) => {
-    return create.definition.url + queryParams(options);
-};
+    return create.definition.url + queryParams(options)
+}
 
 /**
- * @see \App\Http\Controllers\PlayerController::create
+* @see \App\Http\Controllers\PlayerController::create
  * @see app/Http/Controllers/PlayerController.php:55
  * @route '/players/create'
  */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: create.url(options),
     method: 'get',
-});
+})
 /**
- * @see \App\Http\Controllers\PlayerController::create
+* @see \App\Http\Controllers\PlayerController::create
  * @see app/Http/Controllers/PlayerController.php:55
  * @route '/players/create'
  */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: create.url(options),
     method: 'head',
-});
+})
 
-/**
- * @see \App\Http\Controllers\PlayerController::create
+    /**
+* @see \App\Http\Controllers\PlayerController::create
  * @see app/Http/Controllers/PlayerController.php:55
  * @route '/players/create'
  */
-const createForm = (
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'get'> => ({
-    action: create.url(options),
-    method: 'get',
-});
+    const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: create.url(options),
+        method: 'get',
+    })
 
-/**
- * @see \App\Http\Controllers\PlayerController::create
+            /**
+* @see \App\Http\Controllers\PlayerController::create
  * @see app/Http/Controllers/PlayerController.php:55
  * @route '/players/create'
  */
-createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: create.url(options),
-    method: 'get',
-});
-/**
- * @see \App\Http\Controllers\PlayerController::create
+        createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: create.url(options),
+            method: 'get',
+        })
+            /**
+* @see \App\Http\Controllers\PlayerController::create
  * @see app/Http/Controllers/PlayerController.php:55
  * @route '/players/create'
  */
-createForm.head = (
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'get'> => ({
-    action: create.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        },
-    }),
-    method: 'get',
-});
-
-create.form = createForm;
+        createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: create.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    create.form = createForm
 /**
- * @see \App\Http\Controllers\PlayerController::store
+* @see \App\Http\Controllers\PlayerController::store
  * @see app/Http/Controllers/PlayerController.php:65
  * @route '/players'
  */
-export const store = (
-    options?: RouteQueryOptions,
-): RouteDefinition<'post'> => ({
+export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: store.url(options),
     method: 'post',
-});
+})
 
 store.definition = {
-    methods: ['post'],
+    methods: ["post"],
     url: '/players',
-} satisfies RouteDefinition<['post']>;
+} satisfies RouteDefinition<["post"]>
 
 /**
- * @see \App\Http\Controllers\PlayerController::store
+* @see \App\Http\Controllers\PlayerController::store
  * @see app/Http/Controllers/PlayerController.php:65
  * @route '/players'
  */
 store.url = (options?: RouteQueryOptions) => {
-    return store.definition.url + queryParams(options);
-};
+    return store.definition.url + queryParams(options)
+}
 
 /**
- * @see \App\Http\Controllers\PlayerController::store
+* @see \App\Http\Controllers\PlayerController::store
  * @see app/Http/Controllers/PlayerController.php:65
  * @route '/players'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: store.url(options),
     method: 'post',
-});
+})
 
-/**
- * @see \App\Http\Controllers\PlayerController::store
+    /**
+* @see \App\Http\Controllers\PlayerController::store
  * @see app/Http/Controllers/PlayerController.php:65
  * @route '/players'
  */
-const storeForm = (
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'post'> => ({
-    action: store.url(options),
-    method: 'post',
-});
+    const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: store.url(options),
+        method: 'post',
+    })
 
-/**
- * @see \App\Http\Controllers\PlayerController::store
+            /**
+* @see \App\Http\Controllers\PlayerController::store
  * @see app/Http/Controllers/PlayerController.php:65
  * @route '/players'
  */
-storeForm.post = (
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'post'> => ({
-    action: store.url(options),
-    method: 'post',
-});
-
-store.form = storeForm;
+        storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: store.url(options),
+            method: 'post',
+        })
+    
+    store.form = storeForm
 /**
- * @see \App\Http\Controllers\PlayerController::show
+* @see \App\Http\Controllers\PlayerController::show
  * @see app/Http/Controllers/PlayerController.php:79
  * @route '/players/{player}'
  */
-export const show = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteDefinition<'get'> => ({
+export const show = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
-});
+})
 
 show.definition = {
-    methods: ['get', 'head'],
+    methods: ["get","head"],
     url: '/players/{player}',
-} satisfies RouteDefinition<['get', 'head']>;
+} satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see \App\Http\Controllers\PlayerController::show
+* @see \App\Http\Controllers\PlayerController::show
  * @see app/Http/Controllers/PlayerController.php:79
  * @route '/players/{player}'
  */
-show.url = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-) => {
+show.url = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
-        args = { player: args };
+        args = { player: args }
     }
 
-    if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
-        args = { player: args.id };
-    }
-
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { player: args.id }
+        }
+    
     if (Array.isArray(args)) {
         args = {
-            player: args[0],
-        };
+                    player: args[0],
+                }
     }
 
-    args = applyUrlDefaults(args);
+    args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        player: typeof args.player === 'object' ? args.player.id : args.player,
-    };
+                        player: typeof args.player === 'object'
+                ? args.player.id
+                : args.player,
+                }
 
-    return (
-        show.definition.url
+    return show.definition.url
             .replace('{player}', parsedArgs.player.toString())
             .replace(/\/+$/, '') + queryParams(options)
-    );
-};
+}
 
 /**
- * @see \App\Http\Controllers\PlayerController::show
+* @see \App\Http\Controllers\PlayerController::show
  * @see app/Http/Controllers/PlayerController.php:79
  * @route '/players/{player}'
  */
-show.get = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteDefinition<'get'> => ({
+show.get = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
-});
+})
 /**
- * @see \App\Http\Controllers\PlayerController::show
+* @see \App\Http\Controllers\PlayerController::show
  * @see app/Http/Controllers/PlayerController.php:79
  * @route '/players/{player}'
  */
-show.head = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteDefinition<'head'> => ({
+show.head = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
-});
+})
 
-/**
- * @see \App\Http\Controllers\PlayerController::show
+    /**
+* @see \App\Http\Controllers\PlayerController::show
  * @see app/Http/Controllers/PlayerController.php:79
  * @route '/players/{player}'
  */
-const showForm = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'get'> => ({
-    action: show.url(args, options),
-    method: 'get',
-});
+    const showForm = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: show.url(args, options),
+        method: 'get',
+    })
 
-/**
- * @see \App\Http\Controllers\PlayerController::show
+            /**
+* @see \App\Http\Controllers\PlayerController::show
  * @see app/Http/Controllers/PlayerController.php:79
  * @route '/players/{player}'
  */
-showForm.get = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'get'> => ({
-    action: show.url(args, options),
-    method: 'get',
-});
-/**
- * @see \App\Http\Controllers\PlayerController::show
+        showForm.get = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: show.url(args, options),
+            method: 'get',
+        })
+            /**
+* @see \App\Http\Controllers\PlayerController::show
  * @see app/Http/Controllers/PlayerController.php:79
  * @route '/players/{player}'
  */
-showForm.head = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'get'> => ({
-    action: show.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        },
-    }),
-    method: 'get',
-});
-
-show.form = showForm;
+        showForm.head = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: show.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    show.form = showForm
 /**
- * @see \App\Http\Controllers\PlayerController::edit
+* @see \App\Http\Controllers\PlayerController::edit
  * @see app/Http/Controllers/PlayerController.php:96
  * @route '/players/{player}/edit'
  */
-export const edit = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteDefinition<'get'> => ({
+export const edit = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
-});
+})
 
 edit.definition = {
-    methods: ['get', 'head'],
+    methods: ["get","head"],
     url: '/players/{player}/edit',
-} satisfies RouteDefinition<['get', 'head']>;
+} satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see \App\Http\Controllers\PlayerController::edit
+* @see \App\Http\Controllers\PlayerController::edit
  * @see app/Http/Controllers/PlayerController.php:96
  * @route '/players/{player}/edit'
  */
-edit.url = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-) => {
+edit.url = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
-        args = { player: args };
+        args = { player: args }
     }
 
-    if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
-        args = { player: args.id };
-    }
-
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { player: args.id }
+        }
+    
     if (Array.isArray(args)) {
         args = {
-            player: args[0],
-        };
+                    player: args[0],
+                }
     }
 
-    args = applyUrlDefaults(args);
+    args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        player: typeof args.player === 'object' ? args.player.id : args.player,
-    };
+                        player: typeof args.player === 'object'
+                ? args.player.id
+                : args.player,
+                }
 
-    return (
-        edit.definition.url
+    return edit.definition.url
             .replace('{player}', parsedArgs.player.toString())
             .replace(/\/+$/, '') + queryParams(options)
-    );
-};
+}
 
 /**
- * @see \App\Http\Controllers\PlayerController::edit
+* @see \App\Http\Controllers\PlayerController::edit
  * @see app/Http/Controllers/PlayerController.php:96
  * @route '/players/{player}/edit'
  */
-edit.get = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteDefinition<'get'> => ({
+edit.get = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
-});
+})
 /**
- * @see \App\Http\Controllers\PlayerController::edit
+* @see \App\Http\Controllers\PlayerController::edit
  * @see app/Http/Controllers/PlayerController.php:96
  * @route '/players/{player}/edit'
  */
-edit.head = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteDefinition<'head'> => ({
+edit.head = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
-});
+})
 
-/**
- * @see \App\Http\Controllers\PlayerController::edit
+    /**
+* @see \App\Http\Controllers\PlayerController::edit
  * @see app/Http/Controllers/PlayerController.php:96
  * @route '/players/{player}/edit'
  */
-const editForm = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'get'> => ({
-    action: edit.url(args, options),
-    method: 'get',
-});
+    const editForm = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: edit.url(args, options),
+        method: 'get',
+    })
 
-/**
- * @see \App\Http\Controllers\PlayerController::edit
+            /**
+* @see \App\Http\Controllers\PlayerController::edit
  * @see app/Http/Controllers/PlayerController.php:96
  * @route '/players/{player}/edit'
  */
-editForm.get = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'get'> => ({
-    action: edit.url(args, options),
-    method: 'get',
-});
-/**
- * @see \App\Http\Controllers\PlayerController::edit
+        editForm.get = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: edit.url(args, options),
+            method: 'get',
+        })
+            /**
+* @see \App\Http\Controllers\PlayerController::edit
  * @see app/Http/Controllers/PlayerController.php:96
  * @route '/players/{player}/edit'
  */
-editForm.head = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'get'> => ({
-    action: edit.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        },
-    }),
-    method: 'get',
-});
-
-edit.form = editForm;
+        editForm.head = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: edit.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    edit.form = editForm
 /**
- * @see \App\Http\Controllers\PlayerController::update
+* @see \App\Http\Controllers\PlayerController::update
  * @see app/Http/Controllers/PlayerController.php:106
  * @route '/players/{player}'
  */
-export const update = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteDefinition<'put'> => ({
+export const update = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
-});
+})
 
 update.definition = {
-    methods: ['put', 'patch'],
+    methods: ["put","patch"],
     url: '/players/{player}',
-} satisfies RouteDefinition<['put', 'patch']>;
+} satisfies RouteDefinition<["put","patch"]>
 
 /**
- * @see \App\Http\Controllers\PlayerController::update
+* @see \App\Http\Controllers\PlayerController::update
  * @see app/Http/Controllers/PlayerController.php:106
  * @route '/players/{player}'
  */
-update.url = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-) => {
+update.url = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
-        args = { player: args };
+        args = { player: args }
     }
 
-    if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
-        args = { player: args.id };
-    }
-
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { player: args.id }
+        }
+    
     if (Array.isArray(args)) {
         args = {
-            player: args[0],
-        };
+                    player: args[0],
+                }
     }
 
-    args = applyUrlDefaults(args);
+    args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        player: typeof args.player === 'object' ? args.player.id : args.player,
-    };
+                        player: typeof args.player === 'object'
+                ? args.player.id
+                : args.player,
+                }
 
-    return (
-        update.definition.url
+    return update.definition.url
             .replace('{player}', parsedArgs.player.toString())
             .replace(/\/+$/, '') + queryParams(options)
-    );
-};
+}
 
 /**
- * @see \App\Http\Controllers\PlayerController::update
+* @see \App\Http\Controllers\PlayerController::update
  * @see app/Http/Controllers/PlayerController.php:106
  * @route '/players/{player}'
  */
-update.put = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteDefinition<'put'> => ({
+update.put = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
-});
+})
 /**
- * @see \App\Http\Controllers\PlayerController::update
+* @see \App\Http\Controllers\PlayerController::update
  * @see app/Http/Controllers/PlayerController.php:106
  * @route '/players/{player}'
  */
-update.patch = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteDefinition<'patch'> => ({
+update.patch = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
-});
+})
 
-/**
- * @see \App\Http\Controllers\PlayerController::update
+    /**
+* @see \App\Http\Controllers\PlayerController::update
  * @see app/Http/Controllers/PlayerController.php:106
  * @route '/players/{player}'
  */
-const updateForm = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'post'> => ({
-    action: update.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'PUT',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        },
-    }),
-    method: 'post',
-});
+    const updateForm = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: update.url(args, {
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'PUT',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
 
-/**
- * @see \App\Http\Controllers\PlayerController::update
+            /**
+* @see \App\Http\Controllers\PlayerController::update
  * @see app/Http/Controllers/PlayerController.php:106
  * @route '/players/{player}'
  */
-updateForm.put = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'post'> => ({
-    action: update.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'PUT',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        },
-    }),
-    method: 'post',
-});
-/**
- * @see \App\Http\Controllers\PlayerController::update
+        updateForm.put = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: update.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PUT',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+            /**
+* @see \App\Http\Controllers\PlayerController::update
  * @see app/Http/Controllers/PlayerController.php:106
  * @route '/players/{player}'
  */
-updateForm.patch = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'post'> => ({
-    action: update.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'PATCH',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        },
-    }),
-    method: 'post',
-});
-
-update.form = updateForm;
+        updateForm.patch = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: update.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PATCH',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    update.form = updateForm
 /**
- * @see \App\Http\Controllers\PlayerController::destroy
+* @see \App\Http\Controllers\PlayerController::destroy
  * @see app/Http/Controllers/PlayerController.php:120
  * @route '/players/{player}'
  */
-export const destroy = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteDefinition<'delete'> => ({
+export const destroy = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
-});
+})
 
 destroy.definition = {
-    methods: ['delete'],
+    methods: ["delete"],
     url: '/players/{player}',
-} satisfies RouteDefinition<['delete']>;
+} satisfies RouteDefinition<["delete"]>
 
 /**
- * @see \App\Http\Controllers\PlayerController::destroy
+* @see \App\Http\Controllers\PlayerController::destroy
  * @see app/Http/Controllers/PlayerController.php:120
  * @route '/players/{player}'
  */
-destroy.url = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-) => {
+destroy.url = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
-        args = { player: args };
+        args = { player: args }
     }
 
-    if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
-        args = { player: args.id };
-    }
-
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { player: args.id }
+        }
+    
     if (Array.isArray(args)) {
         args = {
-            player: args[0],
-        };
+                    player: args[0],
+                }
     }
 
-    args = applyUrlDefaults(args);
+    args = applyUrlDefaults(args)
 
     const parsedArgs = {
-        player: typeof args.player === 'object' ? args.player.id : args.player,
-    };
+                        player: typeof args.player === 'object'
+                ? args.player.id
+                : args.player,
+                }
 
-    return (
-        destroy.definition.url
+    return destroy.definition.url
             .replace('{player}', parsedArgs.player.toString())
             .replace(/\/+$/, '') + queryParams(options)
-    );
-};
+}
 
 /**
- * @see \App\Http\Controllers\PlayerController::destroy
+* @see \App\Http\Controllers\PlayerController::destroy
  * @see app/Http/Controllers/PlayerController.php:120
  * @route '/players/{player}'
  */
-destroy.delete = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
-});
+})
 
-/**
- * @see \App\Http\Controllers\PlayerController::destroy
+    /**
+* @see \App\Http\Controllers\PlayerController::destroy
  * @see app/Http/Controllers/PlayerController.php:120
  * @route '/players/{player}'
  */
-const destroyForm = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'post'> => ({
-    action: destroy.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'DELETE',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        },
-    }),
-    method: 'post',
-});
+    const destroyForm = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: destroy.url(args, {
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'DELETE',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
 
-/**
- * @see \App\Http\Controllers\PlayerController::destroy
+            /**
+* @see \App\Http\Controllers\PlayerController::destroy
  * @see app/Http/Controllers/PlayerController.php:120
  * @route '/players/{player}'
  */
-destroyForm.delete = (
-    args:
-        | { player: number | { id: number } }
-        | [player: number | { id: number }]
-        | number
-        | { id: number },
-    options?: RouteQueryOptions,
-): RouteFormDefinition<'post'> => ({
-    action: destroy.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'DELETE',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        },
-    }),
-    method: 'post',
-});
-
-destroy.form = destroyForm;
+        destroyForm.delete = (args: { player: number | { id: number } } | [player: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: destroy.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'DELETE',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    destroy.form = destroyForm
 const players = {
     index: Object.assign(index, index),
-    create: Object.assign(create, create),
-    store: Object.assign(store, store),
-    show: Object.assign(show, show),
-    edit: Object.assign(edit, edit),
-    update: Object.assign(update, update),
-    destroy: Object.assign(destroy, destroy),
-};
+create: Object.assign(create, create),
+store: Object.assign(store, store),
+show: Object.assign(show, show),
+edit: Object.assign(edit, edit),
+update: Object.assign(update, update),
+destroy: Object.assign(destroy, destroy),
+}
 
-export default players;
+export default players

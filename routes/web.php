@@ -18,7 +18,7 @@ Route::get('/', [SportsTeamController::class, 'index'])->name('home');
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/{current_team}/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/{current_team}/dashboard', [DashboardController::class, 'index'])->name('team.dashboard');
 
 // Sports Teams CRUD
 Route::resource('teams', SportsTeamController::class)->names([

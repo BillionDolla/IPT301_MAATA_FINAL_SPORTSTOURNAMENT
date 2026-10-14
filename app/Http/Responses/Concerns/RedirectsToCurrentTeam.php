@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 trait RedirectsToCurrentTeam
 {
-    protected function redirectPathForCurrentTeam(Request $request, string $redirect): string
+    protected function teamDashboardPath(Request $request): string
     {
-        return $redirect;
+        return route('team.dashboard', ['current_team' => $this->currentTeam($request)->slug]);
     }
 
     protected function currentTeam(Request $request): Team

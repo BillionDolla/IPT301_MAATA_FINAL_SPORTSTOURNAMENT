@@ -29,7 +29,7 @@ class SportsTournamentSeeder extends Seeder
         $tournament = Tournament::firstOrCreate(
             ['name' => 'Maata Community Cup'],
             [
-                'sport' => 'football',
+                'sport' => 'basketball',
                 'tournament_type' => 'league',
                 'max_teams' => 8,
                 'start_date' => now()->toDateString(),
