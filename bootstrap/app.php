@@ -30,26 +30,5 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
         );
-
-        $exceptions->report(function (\Throwable $e): void {
-            error_log(
-                'ORIGINAL LARAVEL ERROR: '.get_class($e).' - '.$e->getMessage()
-            );
-
-            error_log($e->getTraceAsString());
-        });
-
-        $exceptions->render(function (\Throwable $e, Request $request) {
-            error_log(
-                'LARAVEL ORIGINAL EXCEPTION: '.get_class($e).' - '.$e->getMessage()
-            );
-
-            error_log($e->getTraceAsString());
-
-            return new \Symfony\Component\HttpFoundation\Response(
-                'Laravel exception logged. Check Vercel Runtime Logs.',
-                500
-            );
-        });
     })
     ->create();
