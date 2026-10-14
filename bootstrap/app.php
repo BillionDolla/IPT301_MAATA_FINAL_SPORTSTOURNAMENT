@@ -1,3 +1,4 @@
+
 <?php
 
 use App\Http\Middleware\HandleAppearance;
@@ -36,6 +37,19 @@ return Application::configure(basePath: dirname(__DIR__))
             );
 
             error_log($e->getTraceAsString());
+        });
+
+        $exceptions->render(function (\Throwable $e, Request $request) {
+            error_log(
+                'LARAVEL ORIGINAL EXCEPTION: '.get_class($e).' - '.$e->getMessage()
+            );
+
+            error_log($e->getTraceAsString());
+
+            return new \Symfony\Component\HttpFoundation\Response(
+                'Laravel exception logged. Check Vercel Runtime Logs.',
+                500
+            );
         });
     })
     ->create();
