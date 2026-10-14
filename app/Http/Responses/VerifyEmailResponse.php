@@ -14,8 +14,10 @@ class VerifyEmailResponse implements VerifyEmailResponseContract
 
     public function toResponse($request): Response
     {
+        $redirect = $this->redirectPathForCurrentTeam($request, Fortify::redirects('email-verification'));
+
         return $request->wantsJson()
             ? new JsonResponse('', 204)
-            : redirect()->intended($this->redirectPathForCurrentTeam($request, Fortify::redirects('email-verification')).'?verified=1');
+            : redirect()->intended($redirect.'?verified=1');
     }
 }

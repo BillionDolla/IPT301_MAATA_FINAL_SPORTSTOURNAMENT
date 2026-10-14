@@ -88,8 +88,6 @@ trait HasTeams
         $this->update(['current_team_id' => $team->id]);
         $this->setRelation('currentTeam', $team);
 
-        URL::defaults(['current_team' => $team->slug]);
-
         return true;
     }
 

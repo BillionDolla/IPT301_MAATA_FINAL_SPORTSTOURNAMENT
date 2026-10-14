@@ -14,7 +14,11 @@ class PasskeyLoginResponse implements PasskeyLoginResponseContract
 
     public function toResponse($request): Response
     {
-        $redirect = $this->redirectPathForCurrentTeam($request, Fortify::redirects('login'));
+        $user = $request->user();
+        $team = $user?->currentTeam ?? $user?->personalTeam();
+        $redirect = $team
+            ? route('dashboard', ['current_team' => $team->slug])
+            : Fortify::redirects('login');
 
         return $request->wantsJson()
             ? new JsonResponse(['redirect' => redirect()->intended($redirect)->getTargetUrl()], 200)
