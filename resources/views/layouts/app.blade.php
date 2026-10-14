@@ -124,7 +124,7 @@
             </main>
 
             <footer class="bg-dark text-light text-center py-3 mt-auto">
-                <small>&copy; {{ date('Y') }} Basketball Tournament Management System</small>
+                <small>&copy; {{ date('Y') }} Sports Tournament Management System</small>
             </footer>
         </div>
     </div>

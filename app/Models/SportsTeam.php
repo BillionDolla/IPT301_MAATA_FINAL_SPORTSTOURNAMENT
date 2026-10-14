@@ -110,9 +110,9 @@ class SportsTeam extends Model
     }
 
     /**
-     * Get total goals scored by this team across all matches.
+     * Get total points scored by this team across all matches.
      */
-    public function totalGoalsScored(): int
+    public function totalPointsScored(): int
     {
         return (int) (
             SportsMatch::where('home_team_id', $this->id)->sum('home_score')
@@ -121,9 +121,9 @@ class SportsTeam extends Model
     }
 
     /**
-     * Get total goals conceded by this team across all matches.
+     * Get total points conceded by this team across all matches.
      */
-    public function totalGoalsConceded(): int
+    public function totalPointsConceded(): int
     {
         return (int) (
             SportsMatch::where('away_team_id', $this->id)->sum('home_score')

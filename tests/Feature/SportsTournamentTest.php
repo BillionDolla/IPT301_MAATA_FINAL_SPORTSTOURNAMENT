@@ -22,28 +22,53 @@ test('a score event updates the linked match result and deletion recalculates it
         'match_id' => $match->id,
         'team_id' => $homeTeam->id,
         'player_id' => $player->id,
-        'score_type' => 'goal',
+        'score_type' => 'Three-point shot',
+        'points' => 3,
         'minute' => 24,
-        'second_half' => 1,
+        'period' => 2,
     ])->assertRedirect(route('matches.show', $match));
 
     $this->assertDatabaseHas('scores', ['match_id' => $match->id, 'player_id' => $player->id]);
-    $this->assertDatabaseHas('matches', ['id' => $match->id, 'home_score' => 1, 'away_score' => 0]);
+    $this->assertDatabaseHas('matches', ['id' => $match->id, 'home_score' => 3, 'away_score' => 0]);
+
+    $awayPlayer = Player::factory()->create(['team_id' => $awayTeam->id]);
+    $this->post(route('scores.store'), [
+        'match_id' => $match->id,
+        'team_id' => $awayTeam->id,
+        'player_id' => $awayPlayer->id,
+        'score_type' => 'Basket',
+        'points' => 2,
+        'minute' => 30,
+        'period' => 2,
+    ])->assertRedirect(route('matches.show', $match));
+    $this->assertDatabaseHas('matches', ['id' => $match->id, 'home_score' => 3, 'away_score' => 2]);
 
     $this->from(route('scores.create', ['match_id' => $match->id]))
         ->post(route('scores.store'), [
             'match_id' => $match->id,
             'team_id' => $homeTeam->id,
             'player_id' => $player->id,
-            'score_type' => 'goal',
+            'score_type' => 'Three-point shot',
+            'points' => 3,
             'minute' => 24,
-            'second_half' => 1,
+            'period' => 2,
         ])
         ->assertSessionHasErrors('minute');
 
     $score = Score::query()->firstOrFail();
+    $this->put(route('scores.update', $score), [
+        'match_id' => $match->id,
+        'team_id' => $homeTeam->id,
+        'player_id' => $player->id,
+        'score_type' => 'Three-point shot',
+        'points' => 4,
+        'minute' => 24,
+        'period' => 2,
+    ])->assertRedirect(route('matches.show', $match));
+    $this->assertDatabaseHas('matches', ['id' => $match->id, 'home_score' => 4, 'away_score' => 2]);
+
     $this->delete(route('scores.destroy', $score))->assertRedirect(route('matches.show', $match));
-    $this->assertDatabaseHas('matches', ['id' => $match->id, 'home_score' => 0, 'away_score' => 0]);
+    $this->assertDatabaseHas('matches', ['id' => $match->id, 'home_score' => 0, 'away_score' => 2]);
 });
 
 test('each resource supports creating and updating records', function () {
@@ -69,10 +94,12 @@ test('each resource supports creating and updating records', function () {
         'team_id' => $teams[0]->id,
         'first_name' => 'Ari',
         'last_name' => 'Santos',
+        'position' => 'Wing spiker',
         'player_status' => 'active',
         'is_captain' => 0,
     ])->assertRedirect();
     $player = Player::where('first_name', 'Ari')->firstOrFail();
+    $this->assertSame('Wing spiker', $player->position);
     $this->put(route('players.update', $player), [
         'team_id' => $teams[0]->id,
         'first_name' => 'Ari',
@@ -85,7 +112,7 @@ test('each resource supports creating and updating records', function () {
     $startDate = now()->addDays(7);
     $tournamentData = [
         'name' => 'Community Cup',
-        'sport' => 'football',
+        'sport' => 'Sepak Takraw',
         'tournament_type' => 'league',
         'max_teams' => 8,
         'start_date' => $startDate->toDateString(),
@@ -95,6 +122,7 @@ test('each resource supports creating and updating records', function () {
     ];
     $this->post(route('tournaments.store'), $tournamentData)->assertRedirect();
     $tournament = Tournament::where('name', 'Community Cup')->firstOrFail();
+    $this->assertSame('Sepak Takraw', $tournament->sport);
     $tournamentData['name'] = 'Community Cup Finals';
     $this->put(route('tournaments.update', $tournament), $tournamentData)
         ->assertRedirect(route('tournaments.show', $tournament));
@@ -132,7 +160,8 @@ test('score events cannot be recorded for a player outside the selected team', f
             'match_id' => $match->id,
             'team_id' => $homeTeam->id,
             'player_id' => $player->id,
-            'score_type' => 'goal',
+            'score_type' => 'Score',
+            'points' => 1,
             'minute' => 24,
         ])
         ->assertSessionHasErrors('player_id');
@@ -162,7 +191,8 @@ test('all tournament management resource pages render', function () {
         'match_id' => $match->id,
         'player_id' => $player->id,
         'team_id' => $homeTeam->id,
-        'score_type' => 'goal',
+        'score_type' => 'Score',
+        'points' => 1,
         'minute' => 30,
         'scored_at' => now(),
     ]);
@@ -208,11 +238,17 @@ test('the database seeder creates connected demonstration tournament data', func
     $this->assertDatabaseCount('players', 20);
     $this->assertDatabaseHas('tournaments', [
         'name' => 'Maata Community Cup',
+        'sport' => 'basketball',
         'city' => 'Tagbilaran City',
         'country' => 'Philippines',
         'venue' => 'Carlos P. Garcia Sports Complex, Tagbilaran City, Bohol',
     ]);
-    $this->assertDatabaseCount('matches', 2);
+    $this->assertDatabaseHas('tournaments', [
+        'name' => 'Bohol Volleyball Invitational',
+        'sport' => 'volleyball',
+    ]);
+    $this->assertDatabaseCount('tournaments', 2);
+    $this->assertDatabaseCount('matches', 3);
     $this->assertDatabaseHas('matches', [
         'venue' => 'Carlos P. Garcia Sports Complex, Tagbilaran City, Bohol',
     ]);

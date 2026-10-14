@@ -21,7 +21,10 @@ class PlayerFactory extends Factory
             'phone' => fake()->phoneNumber(),
             'date_of_birth' => fake()->dateTimeBetween('-35 years', '-18 years')->format('Y-m-d'),
             'gender' => fake()->randomElement(['male', 'female', 'other']),
-            'position' => fake()->randomElement(['goalkeeper', 'defender', 'midfielder', 'forward', 'striker', 'substitute']),
+            'position' => fake()->randomElement([
+                'Goalkeeper', 'Defender', 'Midfielder', 'Forward', 'Guard',
+                'Center', 'Pitcher', 'Catcher', 'Setter', 'Libero',
+            ]),
             'jersey_number' => fake()->unique()->numberBetween(1, 99),
             'player_status' => 'active',
             'is_captain' => false,

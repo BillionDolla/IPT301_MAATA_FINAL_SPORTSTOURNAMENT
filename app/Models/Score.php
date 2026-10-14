@@ -17,9 +17,9 @@ use Illuminate\Support\Carbon;
  *
  * @parameter int $team_id
  * @parameter string $score_type
+ * @parameter int $points
  * @parameter int|null $minute
- * @parameter int $second_half
- * @parameter int|null $extra_time_minute
+ * @parameter int|null $period
  * @parameter bool $is_assisted
  * @parameter int|null $assisted_by
  * @parameter string|null $description
@@ -35,8 +35,8 @@ use Illuminate\Support\Carbon;
  * @property-read Player|null $assistedBy
  */
 #[Fillable([
-    'match_id', 'player_id', 'team_id', 'score_type', 'minute',
-    'second_half', 'extra_time_minute', 'is_assisted', 'assisted_by',
+    'match_id', 'player_id', 'team_id', 'score_type', 'points', 'minute',
+    'period', 'is_assisted', 'assisted_by',
     'description', 'video_url', 'scored_at',
 ])]
 class Score extends Model
@@ -53,8 +53,8 @@ class Score extends Model
     {
         return [
             'minute' => 'integer',
-            'second_half' => 'integer',
-            'extra_time_minute' => 'integer',
+            'points' => 'integer',
+            'period' => 'integer',
             'is_assisted' => 'boolean',
             'assisted_by' => 'integer',
             'scored_at' => 'datetime',
@@ -101,12 +101,9 @@ class Score extends Model
         return $this->belongsTo(Player::class, 'assisted_by');
     }
 
-    /**
-     * Determine if this score is a goal.
-     */
-    public function isGoal(): bool
+    public function isScoringEvent(): bool
     {
-        return in_array($this->score_type, ['goal', 'own_goal', 'penalty_goal', 'free_kick', 'header', 'volley'], true);
+        return $this->points > 0;
     }
 
     /**
@@ -116,18 +113,8 @@ class Score extends Model
     {
         $playerName = $this->player->full_name;
         $minuteText = $this->minute !== null ? " ({$this->minute}')" : '';
-        $typeLabel = match ($this->score_type) {
-            'goal' => 'Goal',
-            'own_goal' => 'Own Goal',
-            'penalty_goal' => 'Penalty Goal',
-            'free_kick' => 'Free Kick Goal',
-            'header' => 'Header Goal',
-            'volley' => 'Volley Goal',
-            'assist' => 'Assist',
-            'penalty_miss' => 'Penalty Miss',
-            default => $this->score_type,
-        };
+        $periodText = $this->period !== null ? " (period {$this->period})" : '';
 
-        return "{$playerName} - {$typeLabel}{$minuteText}";
+        return "{$playerName} - {$this->score_type}{$minuteText}{$periodText}";
     }
 }

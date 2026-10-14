@@ -80,14 +80,13 @@ class PlayerController extends Controller
     {
         $player->load('team', 'scores.match.tournament', 'scores.team');
 
-        $goals = $player->scores()
-            ->whereNotIn('score_type', ['assist', 'chance_created', 'penalty_miss'])
+        $scoreEvents = $player->scores()
             ->with('match.tournament')
             ->latest()
             ->limit(10)
             ->get();
 
-        return view('players.show', compact('player', 'goals'));
+        return view('players.show', compact('player', 'scoreEvents'));
     }
 
     /**

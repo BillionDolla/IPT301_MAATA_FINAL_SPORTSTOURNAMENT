@@ -16,10 +16,10 @@ return new class extends Migration
             $table->foreignId('match_id')->constrained('matches')->cascadeOnDelete();
             $table->foreignId('player_id')->constrained('players')->cascadeOnDelete();
             $table->foreignId('team_id')->constrained('sports_teams')->cascadeOnDelete();
-            $table->enum('score_type', ['goal', 'own_goal', 'penalty_goal', 'free_kick', 'header', 'volley', 'assist', 'penalty_miss', 'chance_created']);
+            $table->string('score_type', 100);
+            $table->unsignedSmallInteger('points')->default(1);
             $table->unsignedSmallInteger('minute')->nullable();
-            $table->unsignedSmallInteger('second_half')->default(1);
-            $table->unsignedSmallInteger('extra_time_minute')->nullable();
+            $table->unsignedSmallInteger('period')->nullable();
             $table->boolean('is_assisted')->default(false);
             $table->foreignId('assisted_by')->nullable()->constrained('players')->nullOnDelete();
             $table->text('description')->nullable();
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->index(['match_id', 'team_id']);
             $table->index(['player_id', 'score_type']);
             $table->index(['scored_at']);
-            $table->unique(['match_id', 'player_id', 'score_type', 'minute'], 'unique_score');
+            $table->unique(['match_id', 'player_id', 'score_type', 'period', 'minute'], 'unique_score');
         });
     }
 

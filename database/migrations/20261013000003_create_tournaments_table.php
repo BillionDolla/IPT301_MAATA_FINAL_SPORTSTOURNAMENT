@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tournaments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('sport', ['football', 'basketball', 'volleyball', 'tennis', 'cricket', 'rugby', 'handball', 'futsal', 'baseball', 'hockey']);
+            $table->string('sport', 100);
             $table->enum('tournament_type', ['league', 'knockout', 'group_knockout', 'round_robin', 'double_elimination']);
             $table->unsignedSmallInteger('max_teams')->default(16);
             $table->unsignedSmallInteger('teams_per_group')->nullable();

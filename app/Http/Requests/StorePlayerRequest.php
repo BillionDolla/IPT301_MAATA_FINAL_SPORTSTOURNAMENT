@@ -29,7 +29,7 @@ class StorePlayerRequest extends FormRequest
             'phone' => 'nullable|string|max:20',
             'date_of_birth' => 'nullable|date|before:today',
             'gender' => 'nullable|in:male,female,other',
-            'position' => 'nullable|in:goalkeeper,defender,midfielder,forward,striker,captain,substitute',
+            'position' => 'nullable|string|max:100',
             'jersey_number' => 'nullable|integer|min:1|max:99',
             'height' => 'nullable|numeric|min:100|max:250',
             'weight' => 'nullable|numeric|min:30|max:200',

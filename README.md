@@ -1,6 +1,6 @@
-# Basketball Tournament Management System
+# Sports Tournament Management System
 
-A Laravel application for managing basketball teams, players, tournaments, matches, and score events. The app uses Laravel MVC, Eloquent relationships, named resource routes, server-side validation, reusable Blade layouts, and Bootstrap 5.
+A Laravel application for managing teams, players, tournaments, matches, and score events for any sport. Sports and player roles can be entered freely, and each event can award any non-negative number of points. The app uses Laravel MVC, Eloquent relationships, named resource routes, server-side validation, reusable Blade layouts, and Bootstrap 5.
 
 ## Features
 
@@ -8,7 +8,7 @@ A Laravel application for managing basketball teams, players, tournaments, match
 - Create, view, edit, and delete teams, players, tournaments, matches, and score events
 - Team rosters and related tournament, fixture, and score-event details
 - Server-side validation with clear errors and retained form input
-- Match score updates from recorded score events
+- Match score updates from configurable, points-based score events
 - Search/filter controls, pagination, and responsive Bootstrap navigation
 - Repeatable sample tournament data for a quick demo
 
@@ -74,7 +74,9 @@ The project has exactly five tournament-domain tables and their related Eloquent
 
 Framework and account tables (such as users, sessions, cache, and starter-kit teams) are separate from these five domain tables. The domain migrations are under `database/migrations`; factories and the sample seeder are under `database/factories` and `database/seeders`.
 
-Score events are checked against the match’s participating teams and the player’s team. Recording, updating, or deleting an event recalculates the match result. Related records are protected from invalid deletion.
+Tournament sports, player positions, and score-event names are extensible, so the same system can support different sports without changing its schema. Score events are checked against the match’s participating teams and the player’s team; each event stores its point value and optional period/set. Recording, updating, or deleting an event recalculates the match result from the event points. Related records are protected from invalid deletion.
+
+The schema migrations are designed for a fresh clone. If you already have an older local database, back it up before rebuilding it with `php artisan migrate:fresh --seed`; that command deletes all data in the selected database.
 
 ## Database commands
 

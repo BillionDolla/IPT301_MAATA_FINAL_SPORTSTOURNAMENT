@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\TournamentController::index
- * @see app/Http/Controllers/TournamentController.php:21
+ * @see app/Http/Controllers/TournamentController.php:27
  * @route '/tournaments'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\TournamentController::index
- * @see app/Http/Controllers/TournamentController.php:21
+ * @see app/Http/Controllers/TournamentController.php:27
  * @route '/tournaments'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\TournamentController::index
- * @see app/Http/Controllers/TournamentController.php:21
+ * @see app/Http/Controllers/TournamentController.php:27
  * @route '/tournaments'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\TournamentController::index
- * @see app/Http/Controllers/TournamentController.php:21
+ * @see app/Http/Controllers/TournamentController.php:27
  * @route '/tournaments'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\TournamentController::index
- * @see app/Http/Controllers/TournamentController.php:21
+ * @see app/Http/Controllers/TournamentController.php:27
  * @route '/tournaments'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\TournamentController::index
- * @see app/Http/Controllers/TournamentController.php:21
+ * @see app/Http/Controllers/TournamentController.php:27
  * @route '/tournaments'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\TournamentController::index
- * @see app/Http/Controllers/TournamentController.php:21
+ * @see app/Http/Controllers/TournamentController.php:27
  * @route '/tournaments'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Http\Controllers\TournamentController::create
- * @see app/Http/Controllers/TournamentController.php:53
+ * @see app/Http/Controllers/TournamentController.php:63
  * @route '/tournaments/create'
  */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -94,7 +94,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\TournamentController::create
- * @see app/Http/Controllers/TournamentController.php:53
+ * @see app/Http/Controllers/TournamentController.php:63
  * @route '/tournaments/create'
  */
 create.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\TournamentController::create
- * @see app/Http/Controllers/TournamentController.php:53
+ * @see app/Http/Controllers/TournamentController.php:63
  * @route '/tournaments/create'
  */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -112,7 +112,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\TournamentController::create
- * @see app/Http/Controllers/TournamentController.php:53
+ * @see app/Http/Controllers/TournamentController.php:63
  * @route '/tournaments/create'
  */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -122,7 +122,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\TournamentController::create
- * @see app/Http/Controllers/TournamentController.php:53
+ * @see app/Http/Controllers/TournamentController.php:63
  * @route '/tournaments/create'
  */
     const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -132,7 +132,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\TournamentController::create
- * @see app/Http/Controllers/TournamentController.php:53
+ * @see app/Http/Controllers/TournamentController.php:63
  * @route '/tournaments/create'
  */
         createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -141,7 +141,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\TournamentController::create
- * @see app/Http/Controllers/TournamentController.php:53
+ * @see app/Http/Controllers/TournamentController.php:63
  * @route '/tournaments/create'
  */
         createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\TournamentController::store
- * @see app/Http/Controllers/TournamentController.php:61
+ * @see app/Http/Controllers/TournamentController.php:73
  * @route '/tournaments'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\TournamentController::store
- * @see app/Http/Controllers/TournamentController.php:61
+ * @see app/Http/Controllers/TournamentController.php:73
  * @route '/tournaments'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\TournamentController::store
- * @see app/Http/Controllers/TournamentController.php:61
+ * @see app/Http/Controllers/TournamentController.php:73
  * @route '/tournaments'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\TournamentController::store
- * @see app/Http/Controllers/TournamentController.php:61
+ * @see app/Http/Controllers/TournamentController.php:73
  * @route '/tournaments'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\TournamentController::store
- * @see app/Http/Controllers/TournamentController.php:61
+ * @see app/Http/Controllers/TournamentController.php:73
  * @route '/tournaments'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\TournamentController::show
- * @see app/Http/Controllers/TournamentController.php:73
+ * @see app/Http/Controllers/TournamentController.php:85
  * @route '/tournaments/{tournament}'
  */
 export const show = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\TournamentController::show
- * @see app/Http/Controllers/TournamentController.php:73
+ * @see app/Http/Controllers/TournamentController.php:85
  * @route '/tournaments/{tournament}'
  */
 show.url = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ show.url = (args: { tournament: number | { id: number } } | [tournament: number 
 
 /**
 * @see \App\Http\Controllers\TournamentController::show
- * @see app/Http/Controllers/TournamentController.php:73
+ * @see app/Http/Controllers/TournamentController.php:85
  * @route '/tournaments/{tournament}'
  */
 show.get = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ show.get = (args: { tournament: number | { id: number } } | [tournament: number 
 })
 /**
 * @see \App\Http\Controllers\TournamentController::show
- * @see app/Http/Controllers/TournamentController.php:73
+ * @see app/Http/Controllers/TournamentController.php:85
  * @route '/tournaments/{tournament}'
  */
 show.head = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ show.head = (args: { tournament: number | { id: number } } | [tournament: number
 
     /**
 * @see \App\Http\Controllers\TournamentController::show
- * @see app/Http/Controllers/TournamentController.php:73
+ * @see app/Http/Controllers/TournamentController.php:85
  * @route '/tournaments/{tournament}'
  */
     const showForm = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ show.head = (args: { tournament: number | { id: number } } | [tournament: number
 
             /**
 * @see \App\Http\Controllers\TournamentController::show
- * @see app/Http/Controllers/TournamentController.php:73
+ * @see app/Http/Controllers/TournamentController.php:85
  * @route '/tournaments/{tournament}'
  */
         showForm.get = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ show.head = (args: { tournament: number | { id: number } } | [tournament: number
         })
             /**
 * @see \App\Http\Controllers\TournamentController::show
- * @see app/Http/Controllers/TournamentController.php:73
+ * @see app/Http/Controllers/TournamentController.php:85
  * @route '/tournaments/{tournament}'
  */
         showForm.head = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ show.head = (args: { tournament: number | { id: number } } | [tournament: number
     show.form = showForm
 /**
 * @see \App\Http\Controllers\TournamentController::edit
- * @see app/Http/Controllers/TournamentController.php:103
+ * @see app/Http/Controllers/TournamentController.php:115
  * @route '/tournaments/{tournament}/edit'
  */
 export const edit = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -329,7 +329,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\TournamentController::edit
- * @see app/Http/Controllers/TournamentController.php:103
+ * @see app/Http/Controllers/TournamentController.php:115
  * @route '/tournaments/{tournament}/edit'
  */
 edit.url = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ edit.url = (args: { tournament: number | { id: number } } | [tournament: number 
 
 /**
 * @see \App\Http\Controllers\TournamentController::edit
- * @see app/Http/Controllers/TournamentController.php:103
+ * @see app/Http/Controllers/TournamentController.php:115
  * @route '/tournaments/{tournament}/edit'
  */
 edit.get = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -371,7 +371,7 @@ edit.get = (args: { tournament: number | { id: number } } | [tournament: number 
 })
 /**
 * @see \App\Http\Controllers\TournamentController::edit
- * @see app/Http/Controllers/TournamentController.php:103
+ * @see app/Http/Controllers/TournamentController.php:115
  * @route '/tournaments/{tournament}/edit'
  */
 edit.head = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -381,7 +381,7 @@ edit.head = (args: { tournament: number | { id: number } } | [tournament: number
 
     /**
 * @see \App\Http\Controllers\TournamentController::edit
- * @see app/Http/Controllers/TournamentController.php:103
+ * @see app/Http/Controllers/TournamentController.php:115
  * @route '/tournaments/{tournament}/edit'
  */
     const editForm = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -391,7 +391,7 @@ edit.head = (args: { tournament: number | { id: number } } | [tournament: number
 
             /**
 * @see \App\Http\Controllers\TournamentController::edit
- * @see app/Http/Controllers/TournamentController.php:103
+ * @see app/Http/Controllers/TournamentController.php:115
  * @route '/tournaments/{tournament}/edit'
  */
         editForm.get = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -400,7 +400,7 @@ edit.head = (args: { tournament: number | { id: number } } | [tournament: number
         })
             /**
 * @see \App\Http\Controllers\TournamentController::edit
- * @see app/Http/Controllers/TournamentController.php:103
+ * @see app/Http/Controllers/TournamentController.php:115
  * @route '/tournaments/{tournament}/edit'
  */
         editForm.head = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -416,7 +416,7 @@ edit.head = (args: { tournament: number | { id: number } } | [tournament: number
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\TournamentController::update
- * @see app/Http/Controllers/TournamentController.php:111
+ * @see app/Http/Controllers/TournamentController.php:125
  * @route '/tournaments/{tournament}'
  */
 export const update = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -431,7 +431,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\TournamentController::update
- * @see app/Http/Controllers/TournamentController.php:111
+ * @see app/Http/Controllers/TournamentController.php:125
  * @route '/tournaments/{tournament}'
  */
 update.url = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -464,7 +464,7 @@ update.url = (args: { tournament: number | { id: number } } | [tournament: numbe
 
 /**
 * @see \App\Http\Controllers\TournamentController::update
- * @see app/Http/Controllers/TournamentController.php:111
+ * @see app/Http/Controllers/TournamentController.php:125
  * @route '/tournaments/{tournament}'
  */
 update.put = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -473,7 +473,7 @@ update.put = (args: { tournament: number | { id: number } } | [tournament: numbe
 })
 /**
 * @see \App\Http\Controllers\TournamentController::update
- * @see app/Http/Controllers/TournamentController.php:111
+ * @see app/Http/Controllers/TournamentController.php:125
  * @route '/tournaments/{tournament}'
  */
 update.patch = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -483,7 +483,7 @@ update.patch = (args: { tournament: number | { id: number } } | [tournament: num
 
     /**
 * @see \App\Http\Controllers\TournamentController::update
- * @see app/Http/Controllers/TournamentController.php:111
+ * @see app/Http/Controllers/TournamentController.php:125
  * @route '/tournaments/{tournament}'
  */
     const updateForm = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -498,7 +498,7 @@ update.patch = (args: { tournament: number | { id: number } } | [tournament: num
 
             /**
 * @see \App\Http\Controllers\TournamentController::update
- * @see app/Http/Controllers/TournamentController.php:111
+ * @see app/Http/Controllers/TournamentController.php:125
  * @route '/tournaments/{tournament}'
  */
         updateForm.put = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -512,7 +512,7 @@ update.patch = (args: { tournament: number | { id: number } } | [tournament: num
         })
             /**
 * @see \App\Http\Controllers\TournamentController::update
- * @see app/Http/Controllers/TournamentController.php:111
+ * @see app/Http/Controllers/TournamentController.php:125
  * @route '/tournaments/{tournament}'
  */
         updateForm.patch = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -528,7 +528,7 @@ update.patch = (args: { tournament: number | { id: number } } | [tournament: num
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\TournamentController::destroy
- * @see app/Http/Controllers/TournamentController.php:122
+ * @see app/Http/Controllers/TournamentController.php:136
  * @route '/tournaments/{tournament}'
  */
 export const destroy = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -543,7 +543,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\TournamentController::destroy
- * @see app/Http/Controllers/TournamentController.php:122
+ * @see app/Http/Controllers/TournamentController.php:136
  * @route '/tournaments/{tournament}'
  */
 destroy.url = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -576,7 +576,7 @@ destroy.url = (args: { tournament: number | { id: number } } | [tournament: numb
 
 /**
 * @see \App\Http\Controllers\TournamentController::destroy
- * @see app/Http/Controllers/TournamentController.php:122
+ * @see app/Http/Controllers/TournamentController.php:136
  * @route '/tournaments/{tournament}'
  */
 destroy.delete = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -586,7 +586,7 @@ destroy.delete = (args: { tournament: number | { id: number } } | [tournament: n
 
     /**
 * @see \App\Http\Controllers\TournamentController::destroy
- * @see app/Http/Controllers/TournamentController.php:122
+ * @see app/Http/Controllers/TournamentController.php:136
  * @route '/tournaments/{tournament}'
  */
     const destroyForm = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -601,7 +601,7 @@ destroy.delete = (args: { tournament: number | { id: number } } | [tournament: n
 
             /**
 * @see \App\Http\Controllers\TournamentController::destroy
- * @see app/Http/Controllers/TournamentController.php:122
+ * @see app/Http/Controllers/TournamentController.php:136
  * @route '/tournaments/{tournament}'
  */
         destroyForm.delete = (args: { tournament: number | { id: number } } | [tournament: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

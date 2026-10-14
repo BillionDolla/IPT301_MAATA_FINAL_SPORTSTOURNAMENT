@@ -24,7 +24,7 @@ class DashboardController extends Controller
             'completedMatches' => SportsMatch::where('status', 'completed')->count(),
             'ongoingMatches' => SportsMatch::where('status', 'in_progress')->count(),
             'scheduledMatches' => SportsMatch::where('status', 'scheduled')->count(),
-            'totalGoals' => SportsMatch::sum('home_score') + SportsMatch::sum('away_score'),
+            'totalPoints' => SportsMatch::sum('home_score') + SportsMatch::sum('away_score'),
             'totalScores' => Score::count(),
             'upcomingMatches' => SportsMatch::with(['homeTeam', 'awayTeam', 'tournament'])
                 ->where('status', 'scheduled')

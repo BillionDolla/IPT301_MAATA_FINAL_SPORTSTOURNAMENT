@@ -15,7 +15,7 @@
         <div class="col-6 col-xl-3"><a href="{{ route('sports-teams.index') }}" class="text-decoration-none text-reset"><div class="card stat-card h-100"><div class="card-body"><div class="d-flex justify-content-between align-items-start mb-3"><span class="stat-label">Registered teams</span><span class="stat-icon"><i class="bi bi-shield-shaded"></i></span></div><div class="stat-value">{{ $totalTeams }}</div><div class="small text-muted mt-2">{{ $activeTeams }} active on the roster</div></div></div></a></div>
         <div class="col-6 col-xl-3"><a href="{{ route('players.index') }}" class="text-decoration-none text-reset"><div class="card stat-card green h-100"><div class="card-body"><div class="d-flex justify-content-between align-items-start mb-3"><span class="stat-label">Players</span><span class="stat-icon"><i class="bi bi-person-badge"></i></span></div><div class="stat-value">{{ $totalPlayers }}</div><div class="small text-muted mt-2">Across all registered teams</div></div></div></a></div>
         <div class="col-6 col-xl-3"><a href="{{ route('tournaments.index') }}" class="text-decoration-none text-reset"><div class="card stat-card warning h-100"><div class="card-body"><div class="d-flex justify-content-between align-items-start mb-3"><span class="stat-label">Tournaments</span><span class="stat-icon"><i class="bi bi-trophy"></i></span></div><div class="stat-value">{{ $totalTournaments }}</div><div class="small text-muted mt-2">{{ $ongoingTournaments }} live · {{ $completedTournaments }} completed</div></div></div></a></div>
-        <div class="col-6 col-xl-3"><a href="{{ route('scores.index') }}" class="text-decoration-none text-reset"><div class="card stat-card info h-100"><div class="card-body"><div class="d-flex justify-content-between align-items-start mb-3"><span class="stat-label">Goals recorded</span><span class="stat-icon"><i class="bi bi-bullseye"></i></span></div><div class="stat-value">{{ $totalGoals }}</div><div class="small text-muted mt-2">{{ $totalScores }} match events logged</div></div></div></a></div>
+        <div class="col-6 col-xl-3"><a href="{{ route('scores.index') }}" class="text-decoration-none text-reset"><div class="card stat-card info h-100"><div class="card-body"><div class="d-flex justify-content-between align-items-start mb-3"><span class="stat-label">Points recorded</span><span class="stat-icon"><i class="bi bi-bullseye"></i></span></div><div class="stat-value">{{ $totalPoints }}</div><div class="small text-muted mt-2">{{ $totalScores }} match events logged</div></div></div></a></div>
     </div>
 
     <div class="row g-3 mb-4">
@@ -27,7 +27,7 @@
                 </div>
                 <div class="table-responsive">
                     <table class="table mb-0">
-                        <thead><tr><th>Kick-off</th><th>Fixture</th><th>Competition</th><th></th></tr></thead>
+                        <thead><tr><th>Scheduled</th><th>Fixture</th><th>Competition</th><th></th></tr></thead>
                         <tbody>
                             @forelse($upcomingMatches as $match)
                                 <tr>
@@ -57,7 +57,7 @@
                             <div class="text-end flex-shrink-0"><div class="fw-bold fs-5">{{ $match->home_score }} <span class="text-muted">:</span> {{ $match->away_score }}</div><span class="badge {{ $match->status === 'in_progress' ? 'text-bg-danger' : 'text-bg-light' }}">{{ $match->status === 'in_progress' ? 'LIVE' : 'FT' }}</span></div>
                         </a>
                     @empty
-                        <div class="text-center text-muted py-5"><i class="bi bi-flag fs-2 d-block mb-2"></i>Results will appear here after kick-off.</div>
+                        <div class="text-center text-muted py-5"><i class="bi bi-flag fs-2 d-block mb-2"></i>Results will appear here when matches begin.</div>
                     @endforelse
                 </div>
                 <div class="card-footer bg-white border-0 p-3">

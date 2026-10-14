@@ -15,6 +15,12 @@ use Illuminate\View\View;
 
 class TournamentController extends Controller
 {
+    private const SUGGESTED_SPORTS = [
+        'badminton', 'baseball', 'basketball', 'cricket', 'football', 'futsal',
+        'golf', 'handball', 'hockey', 'netball', 'rugby', 'table tennis',
+        'tennis', 'volleyball', 'wrestling',
+    ];
+
     /**
      * Display a listing of the resource.
      */
@@ -42,7 +48,11 @@ class TournamentController extends Controller
         }
 
         $tournaments = $query->latest()->paginate(12)->withQueryString();
-        $sports = ['football', 'basketball', 'volleyball', 'tennis', 'cricket', 'rugby', 'handball', 'futsal', 'baseball', 'hockey'];
+        $sports = collect(self::SUGGESTED_SPORTS)
+            ->merge(Tournament::query()->distinct()->orderBy('sport')->pluck('sport'))
+            ->unique()
+            ->sort()
+            ->values();
 
         return view('tournaments.index', compact('tournaments', 'sports'));
     }
@@ -52,7 +62,9 @@ class TournamentController extends Controller
      */
     public function create(): View
     {
-        return view('tournaments.create');
+        $sports = self::SUGGESTED_SPORTS;
+
+        return view('tournaments.create', compact('sports'));
     }
 
     /**
@@ -102,7 +114,9 @@ class TournamentController extends Controller
      */
     public function edit(Tournament $tournament): View
     {
-        return view('tournaments.edit', compact('tournament'));
+        $sports = self::SUGGESTED_SPORTS;
+
+        return view('tournaments.edit', compact('tournament', 'sports'));
     }
 
     /**
@@ -143,19 +157,19 @@ class TournamentController extends Controller
     protected function computeTournamentStats(EloquentCollection $matches, Collection $teams): array
     {
         $completedMatches = $matches->where('status', 'completed');
-        $totalGoals = 0;
+        $totalPoints = 0;
         $topScorer = null;
-        $topScorerGoals = 0;
+        $topScorerPoints = 0;
 
         foreach ($matches as $match) {
-            $totalGoals += $match->home_score + $match->away_score;
+            $totalPoints += $match->home_score + $match->away_score;
         }
 
         foreach ($teams as $team) {
-            $goals = $matches->where('home_team_id', $team->id)->sum('home_score')
+            $points = $matches->where('home_team_id', $team->id)->sum('home_score')
                 + $matches->where('away_team_id', $team->id)->sum('away_score');
-            if ($goals > $topScorerGoals) {
-                $topScorerGoals = $goals;
+            if ($points > $topScorerPoints) {
+                $topScorerPoints = $points;
                 $topScorer = $team;
             }
         }
@@ -163,10 +177,10 @@ class TournamentController extends Controller
         return [
             'total_matches' => $matches->count(),
             'completed_matches' => $completedMatches->count(),
-            'total_goals' => $totalGoals,
-            'top_scorer' => $topScorer,
-            'top_scorer_goals' => $topScorerGoals,
-            'average_goals_per_match' => $matches->count() > 0 ? round($totalGoals / $matches->count(), 1) : 0,
+            'total_points' => $totalPoints,
+            'top_scoring_team' => $topScorer,
+            'top_scoring_team_points' => $topScorerPoints,
+            'average_points_per_match' => $matches->count() > 0 ? round($totalPoints / $matches->count(), 1) : 0,
         ];
     }
 }

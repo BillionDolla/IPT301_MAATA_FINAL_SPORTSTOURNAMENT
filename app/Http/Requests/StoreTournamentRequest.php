@@ -23,7 +23,7 @@ class StoreTournamentRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'sport' => 'required|in:football,basketball,volleyball,tennis,cricket,rugby,handball,futsal,baseball,hockey',
+            'sport' => 'required|string|max:100',
             'tournament_type' => 'required|in:league,knockout,group_knockout,round_robin,double_elimination',
             'max_teams' => 'required|integer|min:2|max:64',
             'teams_per_group' => 'nullable|integer|min:2|max:32',

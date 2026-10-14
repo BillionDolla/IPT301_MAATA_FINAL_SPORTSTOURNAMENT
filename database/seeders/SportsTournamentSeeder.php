@@ -60,7 +60,7 @@ class SportsTournamentSeeder extends Seeder
                 'match_datetime' => now()->subDay(),
                 'venue' => 'Carlos P. Garcia Sports Complex, Tagbilaran City, Bohol',
                 'status' => 'completed',
-                'home_score' => 2,
+                'home_score' => 5,
                 'away_score' => 1,
             ],
         );
@@ -68,17 +68,18 @@ class SportsTournamentSeeder extends Seeder
 
         if (! $match->scores()->exists()) {
             foreach ([
-                [$teams[0], 'goal', 18],
-                [$teams[0], 'penalty_goal', 61],
-                [$teams[1], 'goal', 74],
-            ] as [$team, $type, $minute]) {
+                [$teams[0], 'Two-point basket', 18, 2],
+                [$teams[0], 'Three-point basket', 61, 3],
+                [$teams[1], 'Free throw', 74, 1],
+            ] as [$team, $type, $minute, $points]) {
                 Score::create([
                     'match_id' => $match->id,
                     'player_id' => Player::where('team_id', $team->id)->firstOrFail()->id,
                     'team_id' => $team->id,
                     'score_type' => $type,
+                    'points' => $points,
                     'minute' => $minute,
-                    'second_half' => $minute > 45 ? 2 : 1,
+                    'period' => $minute > 20 ? 2 : 1,
                     'scored_at' => $match->match_datetime->copy()->addMinutes($minute),
                 ]);
             }
@@ -99,5 +100,37 @@ class SportsTournamentSeeder extends Seeder
             ],
         );
         $upcomingMatch->update(['venue' => 'Carlos P. Garcia Sports Complex, Tagbilaran City, Bohol']);
+
+        $volleyballTournament = Tournament::firstOrCreate(
+            ['name' => 'Bohol Volleyball Invitational'],
+            [
+                'sport' => 'volleyball',
+                'tournament_type' => 'knockout',
+                'max_teams' => 8,
+                'start_date' => now()->addWeeks(2)->toDateString(),
+                'end_date' => now()->addWeeks(3)->toDateString(),
+                'status' => 'registration_open',
+                'venue' => 'Loboc Municipal Sports Grounds',
+                'city' => 'Loboc',
+                'country' => 'Philippines',
+                'organizer' => 'Maata Sports Association',
+                'is_published' => true,
+            ],
+        );
+
+        SportsMatch::firstOrCreate(
+            [
+                'tournament_id' => $volleyballTournament->id,
+                'home_team_id' => $teams[0]->id,
+                'away_team_id' => $teams[2]->id,
+                'match_type' => 'group',
+                'group_name' => 'A',
+            ],
+            [
+                'match_datetime' => now()->addDays(3),
+                'venue' => 'Loboc Municipal Sports Grounds',
+                'status' => 'scheduled',
+            ],
+        );
     }
 }

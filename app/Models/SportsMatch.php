@@ -96,7 +96,7 @@ class SportsMatch extends Model
         return $this->hasMany(Score::class, 'match_id');
     }
 
-    public function totalGoals(): int
+    public function totalPoints(): int
     {
         $total = $this->home_score + $this->away_score;
         if ($this->overtime) {

@@ -11,7 +11,7 @@
             <div class="col-md-2"><button class="btn btn-success w-100">Save result</button></div>
         </form>
     </div></div>
-    <div class="card"><div class="card-header bg-white"><h2 class="h5 mb-0">Score events</h2></div><div class="table-responsive"><table class="table table-hover align-middle mb-0"><thead><tr><th>Minute</th><th>Team</th><th>Player</th><th>Event</th><th>Assist</th><th></th></tr></thead><tbody>
-        @forelse($match->scores->sortBy('minute') as $event)<tr><td>{{ $event->minute ? $event->minute."'" : '—' }}</td><td>{{ $event->team->name }}</td><td>{{ $event->player->full_name }}</td><td>{{ ucfirst(str_replace('_',' ',$event->score_type)) }}</td><td>{{ $event->assistedBy?->full_name ?? '—' }}</td><td class="text-end"><a href="{{ route('scores.show',$event) }}" class="btn btn-sm btn-outline-primary">View</a></td></tr>@empty<tr><td colspan="6" class="text-center text-muted py-4">No score events recorded for this match yet.</td></tr>@endforelse
+    <div class="card"><div class="card-header bg-white"><h2 class="h5 mb-0">Match events</h2></div><div class="table-responsive"><table class="table table-hover align-middle mb-0"><thead><tr><th>Period / set</th><th>Minute / time</th><th>Team</th><th>Player</th><th>Event</th><th>Points</th><th>Assist</th><th></th></tr></thead><tbody>
+        @forelse($match->scores->sortBy(['period', 'minute']) as $event)<tr><td>{{ $event->period ?? '—' }}</td><td>{{ $event->minute ?? '—' }}</td><td>{{ $event->team->name }}</td><td>{{ $event->player->full_name }}</td><td>{{ $event->score_type }}</td><td>{{ $event->points }}</td><td>{{ $event->assistedBy?->full_name ?? '—' }}</td><td class="text-end"><a href="{{ route('scores.show',$event) }}" class="btn btn-sm btn-outline-primary">View</a></td></tr>@empty<tr><td colspan="8" class="text-center text-muted py-4">No score events recorded for this match yet.</td></tr>@endforelse
     </tbody></table></div></div>
 </x-layouts.app>

@@ -112,12 +112,12 @@
                         <strong>{{ $team->homeMatches->count() + $team->awayMatches->count() }}</strong>
                     </div>
                     <div class="d-flex justify-content-between py-2 border-bottom">
-                        <span>Goals Scored</span>
-                        <strong class="text-success">{{ $team->totalGoalsScored() }}</strong>
+                        <span>Points Scored</span>
+                        <strong class="text-success">{{ $team->totalPointsScored() }}</strong>
                     </div>
                     <div class="d-flex justify-content-between py-2">
-                        <span>Goals Conceded</span>
-                        <strong class="text-danger">{{ $team->totalGoalsConceded() }}</strong>
+                        <span>Points Conceded</span>
+                        <strong class="text-danger">{{ $team->totalPointsConceded() }}</strong>
                     </div>
                 </div>
             </div>

@@ -3,13 +3,13 @@
     <div class="row g-3 mb-4">
         <div class="col-6 col-lg-3"><div class="card stat-card"><div class="card-body"><div class="text-muted small">Matches</div><div class="h3 mb-0">{{ $stats['total_matches'] }}</div></div></div></div>
         <div class="col-6 col-lg-3"><div class="card stat-card green"><div class="card-body"><div class="text-muted small">Completed</div><div class="h3 mb-0">{{ $stats['completed_matches'] }}</div></div></div></div>
-        <div class="col-6 col-lg-3"><div class="card stat-card warning"><div class="card-body"><div class="text-muted small">Goals</div><div class="h3 mb-0">{{ $stats['total_goals'] }}</div></div></div></div>
+        <div class="col-6 col-lg-3"><div class="card stat-card warning"><div class="card-body"><div class="text-muted small">Points</div><div class="h3 mb-0">{{ $stats['total_points'] }}</div></div></div></div>
         <div class="col-6 col-lg-3"><div class="card stat-card info"><div class="card-body"><div class="text-muted small">Status</div><div class="h5 mb-0">{{ ucfirst(str_replace('_',' ',$tournament->status)) }}</div></div></div></div>
     </div>
     <div class="row g-3">
         <div class="col-lg-8"><div class="card"><div class="card-header bg-white"><h2 class="h5 mb-0">Tournament matches</h2></div><div class="table-responsive"><table class="table table-hover align-middle mb-0"><thead><tr><th>Date</th><th>Match</th><th>Score</th><th>Status</th></tr></thead><tbody>
             @forelse($matches as $match)<tr><td>{{ $match->match_datetime->format('M j, Y H:i') }}</td><td><a href="{{ route('matches.show',$match) }}">{{ $match->homeTeam->name }} vs {{ $match->awayTeam->name }}</a></td><td>{{ $match->home_score }} – {{ $match->away_score }}</td><td>{{ ucfirst(str_replace('_',' ',$match->status)) }}</td></tr>@empty<tr><td colspan="4" class="text-center text-muted py-4">No matches scheduled.</td></tr>@endforelse
         </tbody></table></div></div></div>
-        <div class="col-lg-4"><div class="card"><div class="card-header bg-white"><h2 class="h5 mb-0">Tournament details</h2></div><div class="card-body"><dl class="mb-0"><dt>Venue</dt><dd>{{ $tournament->venue ?? 'Not set' }}</dd><dt>Organizer</dt><dd>{{ $tournament->organizer ?? 'Not set' }}</dd><dt>Teams</dt><dd>{{ $teams->count() }} / {{ $tournament->max_teams }}</dd><dt>Goals per match</dt><dd>{{ $stats['average_goals_per_match'] }}</dd></dl></div></div></div>
+        <div class="col-lg-4"><div class="card"><div class="card-header bg-white"><h2 class="h5 mb-0">Tournament details</h2></div><div class="card-body"><dl class="mb-0"><dt>Venue</dt><dd>{{ $tournament->venue ?? 'Not set' }}</dd><dt>Organizer</dt><dd>{{ $tournament->organizer ?? 'Not set' }}</dd><dt>Teams</dt><dd>{{ $teams->count() }} / {{ $tournament->max_teams }}</dd><dt>Average points per match</dt><dd>{{ $stats['average_points_per_match'] }}</dd></dl></div></div></div>
     </div>
 </x-layouts.app>

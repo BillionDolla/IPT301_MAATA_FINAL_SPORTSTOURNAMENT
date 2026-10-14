@@ -79,7 +79,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Http\Controllers\ScoreController::create
- * @see app/Http/Controllers/ScoreController.php:47
+ * @see app/Http/Controllers/ScoreController.php:45
  * @route '/scores/create'
  */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -94,7 +94,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\ScoreController::create
- * @see app/Http/Controllers/ScoreController.php:47
+ * @see app/Http/Controllers/ScoreController.php:45
  * @route '/scores/create'
  */
 create.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ScoreController::create
- * @see app/Http/Controllers/ScoreController.php:47
+ * @see app/Http/Controllers/ScoreController.php:45
  * @route '/scores/create'
  */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -112,7 +112,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\ScoreController::create
- * @see app/Http/Controllers/ScoreController.php:47
+ * @see app/Http/Controllers/ScoreController.php:45
  * @route '/scores/create'
  */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -122,7 +122,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\ScoreController::create
- * @see app/Http/Controllers/ScoreController.php:47
+ * @see app/Http/Controllers/ScoreController.php:45
  * @route '/scores/create'
  */
     const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -132,7 +132,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\ScoreController::create
- * @see app/Http/Controllers/ScoreController.php:47
+ * @see app/Http/Controllers/ScoreController.php:45
  * @route '/scores/create'
  */
         createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -141,7 +141,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\ScoreController::create
- * @see app/Http/Controllers/ScoreController.php:47
+ * @see app/Http/Controllers/ScoreController.php:45
  * @route '/scores/create'
  */
         createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\ScoreController::store
- * @see app/Http/Controllers/ScoreController.php:72
+ * @see app/Http/Controllers/ScoreController.php:69
  * @route '/scores'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\ScoreController::store
- * @see app/Http/Controllers/ScoreController.php:72
+ * @see app/Http/Controllers/ScoreController.php:69
  * @route '/scores'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ScoreController::store
- * @see app/Http/Controllers/ScoreController.php:72
+ * @see app/Http/Controllers/ScoreController.php:69
  * @route '/scores'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\ScoreController::store
- * @see app/Http/Controllers/ScoreController.php:72
+ * @see app/Http/Controllers/ScoreController.php:69
  * @route '/scores'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\ScoreController::store
- * @see app/Http/Controllers/ScoreController.php:72
+ * @see app/Http/Controllers/ScoreController.php:69
  * @route '/scores'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\ScoreController::show
- * @see app/Http/Controllers/ScoreController.php:86
+ * @see app/Http/Controllers/ScoreController.php:83
  * @route '/scores/{score}'
  */
 export const show = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\ScoreController::show
- * @see app/Http/Controllers/ScoreController.php:86
+ * @see app/Http/Controllers/ScoreController.php:83
  * @route '/scores/{score}'
  */
 show.url = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ show.url = (args: { score: number | { id: number } } | [score: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\ScoreController::show
- * @see app/Http/Controllers/ScoreController.php:86
+ * @see app/Http/Controllers/ScoreController.php:83
  * @route '/scores/{score}'
  */
 show.get = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ show.get = (args: { score: number | { id: number } } | [score: number | { id: nu
 })
 /**
 * @see \App\Http\Controllers\ScoreController::show
- * @see app/Http/Controllers/ScoreController.php:86
+ * @see app/Http/Controllers/ScoreController.php:83
  * @route '/scores/{score}'
  */
 show.head = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ show.head = (args: { score: number | { id: number } } | [score: number | { id: n
 
     /**
 * @see \App\Http\Controllers\ScoreController::show
- * @see app/Http/Controllers/ScoreController.php:86
+ * @see app/Http/Controllers/ScoreController.php:83
  * @route '/scores/{score}'
  */
     const showForm = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ show.head = (args: { score: number | { id: number } } | [score: number | { id: n
 
             /**
 * @see \App\Http\Controllers\ScoreController::show
- * @see app/Http/Controllers/ScoreController.php:86
+ * @see app/Http/Controllers/ScoreController.php:83
  * @route '/scores/{score}'
  */
         showForm.get = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ show.head = (args: { score: number | { id: number } } | [score: number | { id: n
         })
             /**
 * @see \App\Http\Controllers\ScoreController::show
- * @see app/Http/Controllers/ScoreController.php:86
+ * @see app/Http/Controllers/ScoreController.php:83
  * @route '/scores/{score}'
  */
         showForm.head = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ show.head = (args: { score: number | { id: number } } | [score: number | { id: n
     show.form = showForm
 /**
 * @see \App\Http\Controllers\ScoreController::edit
- * @see app/Http/Controllers/ScoreController.php:96
+ * @see app/Http/Controllers/ScoreController.php:93
  * @route '/scores/{score}/edit'
  */
 export const edit = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -329,7 +329,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\ScoreController::edit
- * @see app/Http/Controllers/ScoreController.php:96
+ * @see app/Http/Controllers/ScoreController.php:93
  * @route '/scores/{score}/edit'
  */
 edit.url = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ edit.url = (args: { score: number | { id: number } } | [score: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\ScoreController::edit
- * @see app/Http/Controllers/ScoreController.php:96
+ * @see app/Http/Controllers/ScoreController.php:93
  * @route '/scores/{score}/edit'
  */
 edit.get = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -371,7 +371,7 @@ edit.get = (args: { score: number | { id: number } } | [score: number | { id: nu
 })
 /**
 * @see \App\Http\Controllers\ScoreController::edit
- * @see app/Http/Controllers/ScoreController.php:96
+ * @see app/Http/Controllers/ScoreController.php:93
  * @route '/scores/{score}/edit'
  */
 edit.head = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -381,7 +381,7 @@ edit.head = (args: { score: number | { id: number } } | [score: number | { id: n
 
     /**
 * @see \App\Http\Controllers\ScoreController::edit
- * @see app/Http/Controllers/ScoreController.php:96
+ * @see app/Http/Controllers/ScoreController.php:93
  * @route '/scores/{score}/edit'
  */
     const editForm = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -391,7 +391,7 @@ edit.head = (args: { score: number | { id: number } } | [score: number | { id: n
 
             /**
 * @see \App\Http\Controllers\ScoreController::edit
- * @see app/Http/Controllers/ScoreController.php:96
+ * @see app/Http/Controllers/ScoreController.php:93
  * @route '/scores/{score}/edit'
  */
         editForm.get = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -400,7 +400,7 @@ edit.head = (args: { score: number | { id: number } } | [score: number | { id: n
         })
             /**
 * @see \App\Http\Controllers\ScoreController::edit
- * @see app/Http/Controllers/ScoreController.php:96
+ * @see app/Http/Controllers/ScoreController.php:93
  * @route '/scores/{score}/edit'
  */
         editForm.head = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -416,7 +416,7 @@ edit.head = (args: { score: number | { id: number } } | [score: number | { id: n
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\ScoreController::update
- * @see app/Http/Controllers/ScoreController.php:117
+ * @see app/Http/Controllers/ScoreController.php:113
  * @route '/scores/{score}'
  */
 export const update = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -431,7 +431,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\ScoreController::update
- * @see app/Http/Controllers/ScoreController.php:117
+ * @see app/Http/Controllers/ScoreController.php:113
  * @route '/scores/{score}'
  */
 update.url = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -464,7 +464,7 @@ update.url = (args: { score: number | { id: number } } | [score: number | { id: 
 
 /**
 * @see \App\Http\Controllers\ScoreController::update
- * @see app/Http/Controllers/ScoreController.php:117
+ * @see app/Http/Controllers/ScoreController.php:113
  * @route '/scores/{score}'
  */
 update.put = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -473,7 +473,7 @@ update.put = (args: { score: number | { id: number } } | [score: number | { id: 
 })
 /**
 * @see \App\Http\Controllers\ScoreController::update
- * @see app/Http/Controllers/ScoreController.php:117
+ * @see app/Http/Controllers/ScoreController.php:113
  * @route '/scores/{score}'
  */
 update.patch = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -483,7 +483,7 @@ update.patch = (args: { score: number | { id: number } } | [score: number | { id
 
     /**
 * @see \App\Http\Controllers\ScoreController::update
- * @see app/Http/Controllers/ScoreController.php:117
+ * @see app/Http/Controllers/ScoreController.php:113
  * @route '/scores/{score}'
  */
     const updateForm = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -498,7 +498,7 @@ update.patch = (args: { score: number | { id: number } } | [score: number | { id
 
             /**
 * @see \App\Http\Controllers\ScoreController::update
- * @see app/Http/Controllers/ScoreController.php:117
+ * @see app/Http/Controllers/ScoreController.php:113
  * @route '/scores/{score}'
  */
         updateForm.put = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -512,7 +512,7 @@ update.patch = (args: { score: number | { id: number } } | [score: number | { id
         })
             /**
 * @see \App\Http\Controllers\ScoreController::update
- * @see app/Http/Controllers/ScoreController.php:117
+ * @see app/Http/Controllers/ScoreController.php:113
  * @route '/scores/{score}'
  */
         updateForm.patch = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -528,7 +528,7 @@ update.patch = (args: { score: number | { id: number } } | [score: number | { id
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\ScoreController::destroy
- * @see app/Http/Controllers/ScoreController.php:133
+ * @see app/Http/Controllers/ScoreController.php:129
  * @route '/scores/{score}'
  */
 export const destroy = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -543,7 +543,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\ScoreController::destroy
- * @see app/Http/Controllers/ScoreController.php:133
+ * @see app/Http/Controllers/ScoreController.php:129
  * @route '/scores/{score}'
  */
 destroy.url = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -576,7 +576,7 @@ destroy.url = (args: { score: number | { id: number } } | [score: number | { id:
 
 /**
 * @see \App\Http\Controllers\ScoreController::destroy
- * @see app/Http/Controllers/ScoreController.php:133
+ * @see app/Http/Controllers/ScoreController.php:129
  * @route '/scores/{score}'
  */
 destroy.delete = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -586,7 +586,7 @@ destroy.delete = (args: { score: number | { id: number } } | [score: number | { 
 
     /**
 * @see \App\Http\Controllers\ScoreController::destroy
- * @see app/Http/Controllers/ScoreController.php:133
+ * @see app/Http/Controllers/ScoreController.php:129
  * @route '/scores/{score}'
  */
     const destroyForm = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -601,7 +601,7 @@ destroy.delete = (args: { score: number | { id: number } } | [score: number | { 
 
             /**
 * @see \App\Http\Controllers\ScoreController::destroy
- * @see app/Http/Controllers/ScoreController.php:133
+ * @see app/Http/Controllers/ScoreController.php:129
  * @route '/scores/{score}'
  */
         destroyForm.delete = (args: { score: number | { id: number } } | [score: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

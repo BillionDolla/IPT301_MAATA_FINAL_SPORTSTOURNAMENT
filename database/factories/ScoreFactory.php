@@ -22,9 +22,7 @@ class ScoreFactory extends Factory
             $score->player->update(['team_id' => $homeTeamId]);
             $score->update(['team_id' => $homeTeamId]);
 
-            if (in_array($score->score_type, ['goal', 'penalty_goal', 'free_kick', 'header', 'volley'], true)) {
-                $match->increment('home_score');
-            }
+            $match->increment('home_score', $score->points);
         });
     }
 
@@ -34,9 +32,10 @@ class ScoreFactory extends Factory
             'match_id' => SportsMatch::factory(),
             'player_id' => Player::factory(),
             'team_id' => SportsTeam::factory(),
-            'score_type' => 'goal',
+            'score_type' => 'Score',
+            'points' => 1,
             'minute' => fake()->numberBetween(1, 90),
-            'second_half' => 1,
+            'period' => 1,
             'is_assisted' => false,
             'scored_at' => now(),
         ];

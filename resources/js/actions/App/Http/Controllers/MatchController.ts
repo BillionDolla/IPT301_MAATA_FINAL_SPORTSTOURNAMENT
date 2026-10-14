@@ -314,7 +314,7 @@ show.head = (args: { match: number | { id: number } } | [match: number | { id: n
     show.form = showForm
 /**
 * @see \App\Http\Controllers\MatchController::edit
- * @see app/Http/Controllers/MatchController.php:103
+ * @see app/Http/Controllers/MatchController.php:91
  * @route '/matches/{match}/edit'
  */
 export const edit = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -329,7 +329,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\MatchController::edit
- * @see app/Http/Controllers/MatchController.php:103
+ * @see app/Http/Controllers/MatchController.php:91
  * @route '/matches/{match}/edit'
  */
 edit.url = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ edit.url = (args: { match: number | { id: number } } | [match: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\MatchController::edit
- * @see app/Http/Controllers/MatchController.php:103
+ * @see app/Http/Controllers/MatchController.php:91
  * @route '/matches/{match}/edit'
  */
 edit.get = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -371,7 +371,7 @@ edit.get = (args: { match: number | { id: number } } | [match: number | { id: nu
 })
 /**
 * @see \App\Http\Controllers\MatchController::edit
- * @see app/Http/Controllers/MatchController.php:103
+ * @see app/Http/Controllers/MatchController.php:91
  * @route '/matches/{match}/edit'
  */
 edit.head = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -381,7 +381,7 @@ edit.head = (args: { match: number | { id: number } } | [match: number | { id: n
 
     /**
 * @see \App\Http\Controllers\MatchController::edit
- * @see app/Http/Controllers/MatchController.php:103
+ * @see app/Http/Controllers/MatchController.php:91
  * @route '/matches/{match}/edit'
  */
     const editForm = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -391,7 +391,7 @@ edit.head = (args: { match: number | { id: number } } | [match: number | { id: n
 
             /**
 * @see \App\Http\Controllers\MatchController::edit
- * @see app/Http/Controllers/MatchController.php:103
+ * @see app/Http/Controllers/MatchController.php:91
  * @route '/matches/{match}/edit'
  */
         editForm.get = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -400,7 +400,7 @@ edit.head = (args: { match: number | { id: number } } | [match: number | { id: n
         })
             /**
 * @see \App\Http\Controllers\MatchController::edit
- * @see app/Http/Controllers/MatchController.php:103
+ * @see app/Http/Controllers/MatchController.php:91
  * @route '/matches/{match}/edit'
  */
         editForm.head = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -416,7 +416,7 @@ edit.head = (args: { match: number | { id: number } } | [match: number | { id: n
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\MatchController::update
- * @see app/Http/Controllers/MatchController.php:114
+ * @see app/Http/Controllers/MatchController.php:102
  * @route '/matches/{match}'
  */
 export const update = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -431,7 +431,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\MatchController::update
- * @see app/Http/Controllers/MatchController.php:114
+ * @see app/Http/Controllers/MatchController.php:102
  * @route '/matches/{match}'
  */
 update.url = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -464,7 +464,7 @@ update.url = (args: { match: number | { id: number } } | [match: number | { id: 
 
 /**
 * @see \App\Http\Controllers\MatchController::update
- * @see app/Http/Controllers/MatchController.php:114
+ * @see app/Http/Controllers/MatchController.php:102
  * @route '/matches/{match}'
  */
 update.put = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -473,7 +473,7 @@ update.put = (args: { match: number | { id: number } } | [match: number | { id: 
 })
 /**
 * @see \App\Http\Controllers\MatchController::update
- * @see app/Http/Controllers/MatchController.php:114
+ * @see app/Http/Controllers/MatchController.php:102
  * @route '/matches/{match}'
  */
 update.patch = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -483,7 +483,7 @@ update.patch = (args: { match: number | { id: number } } | [match: number | { id
 
     /**
 * @see \App\Http\Controllers\MatchController::update
- * @see app/Http/Controllers/MatchController.php:114
+ * @see app/Http/Controllers/MatchController.php:102
  * @route '/matches/{match}'
  */
     const updateForm = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -498,7 +498,7 @@ update.patch = (args: { match: number | { id: number } } | [match: number | { id
 
             /**
 * @see \App\Http\Controllers\MatchController::update
- * @see app/Http/Controllers/MatchController.php:114
+ * @see app/Http/Controllers/MatchController.php:102
  * @route '/matches/{match}'
  */
         updateForm.put = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -512,7 +512,7 @@ update.patch = (args: { match: number | { id: number } } | [match: number | { id
         })
             /**
 * @see \App\Http\Controllers\MatchController::update
- * @see app/Http/Controllers/MatchController.php:114
+ * @see app/Http/Controllers/MatchController.php:102
  * @route '/matches/{match}'
  */
         updateForm.patch = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -528,7 +528,7 @@ update.patch = (args: { match: number | { id: number } } | [match: number | { id
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\MatchController::destroy
- * @see app/Http/Controllers/MatchController.php:125
+ * @see app/Http/Controllers/MatchController.php:113
  * @route '/matches/{match}'
  */
 export const destroy = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -543,7 +543,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\MatchController::destroy
- * @see app/Http/Controllers/MatchController.php:125
+ * @see app/Http/Controllers/MatchController.php:113
  * @route '/matches/{match}'
  */
 destroy.url = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -576,7 +576,7 @@ destroy.url = (args: { match: number | { id: number } } | [match: number | { id:
 
 /**
 * @see \App\Http\Controllers\MatchController::destroy
- * @see app/Http/Controllers/MatchController.php:125
+ * @see app/Http/Controllers/MatchController.php:113
  * @route '/matches/{match}'
  */
 destroy.delete = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -586,7 +586,7 @@ destroy.delete = (args: { match: number | { id: number } } | [match: number | { 
 
     /**
 * @see \App\Http\Controllers\MatchController::destroy
- * @see app/Http/Controllers/MatchController.php:125
+ * @see app/Http/Controllers/MatchController.php:113
  * @route '/matches/{match}'
  */
     const destroyForm = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -601,7 +601,7 @@ destroy.delete = (args: { match: number | { id: number } } | [match: number | { 
 
             /**
 * @see \App\Http\Controllers\MatchController::destroy
- * @see app/Http/Controllers/MatchController.php:125
+ * @see app/Http/Controllers/MatchController.php:113
  * @route '/matches/{match}'
  */
         destroyForm.delete = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -617,7 +617,7 @@ destroy.delete = (args: { match: number | { id: number } } | [match: number | { 
     destroy.form = destroyForm
 /**
 * @see \App\Http\Controllers\MatchController::updateScore
- * @see app/Http/Controllers/MatchController.php:141
+ * @see app/Http/Controllers/MatchController.php:129
  * @route '/matches/{match}/score'
  */
 export const updateScore = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -632,7 +632,7 @@ updateScore.definition = {
 
 /**
 * @see \App\Http\Controllers\MatchController::updateScore
- * @see app/Http/Controllers/MatchController.php:141
+ * @see app/Http/Controllers/MatchController.php:129
  * @route '/matches/{match}/score'
  */
 updateScore.url = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -665,7 +665,7 @@ updateScore.url = (args: { match: number | { id: number } } | [match: number | {
 
 /**
 * @see \App\Http\Controllers\MatchController::updateScore
- * @see app/Http/Controllers/MatchController.php:141
+ * @see app/Http/Controllers/MatchController.php:129
  * @route '/matches/{match}/score'
  */
 updateScore.post = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -675,7 +675,7 @@ updateScore.post = (args: { match: number | { id: number } } | [match: number | 
 
     /**
 * @see \App\Http\Controllers\MatchController::updateScore
- * @see app/Http/Controllers/MatchController.php:141
+ * @see app/Http/Controllers/MatchController.php:129
  * @route '/matches/{match}/score'
  */
     const updateScoreForm = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -685,7 +685,7 @@ updateScore.post = (args: { match: number | { id: number } } | [match: number | 
 
             /**
 * @see \App\Http\Controllers\MatchController::updateScore
- * @see app/Http/Controllers/MatchController.php:141
+ * @see app/Http/Controllers/MatchController.php:129
  * @route '/matches/{match}/score'
  */
         updateScoreForm.post = (args: { match: number | { id: number } } | [match: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

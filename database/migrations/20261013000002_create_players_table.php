@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->enum('gender', ['male', 'female', 'other'])->nullable();
-            $table->enum('position', ['goalkeeper', 'defender', 'midfielder', 'forward', 'striker', 'captain', 'substitute'])->nullable();
+            $table->string('position', 100)->nullable();
             $table->unsignedSmallInteger('jersey_number')->nullable();
             $table->decimal('height', 5, 2)->nullable();
             $table->decimal('weight', 5, 2)->nullable();

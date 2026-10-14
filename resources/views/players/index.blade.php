@@ -24,14 +24,7 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <select name="position" class="form-select">
-                        <option value="">All Positions</option>
-                        @foreach(['goalkeeper','defender','midfielder','forward','striker','captain','substitute'] as $pos)
-                            <option value="{{ $pos }}" {{ request('position') === $pos ? 'selected' : '' }}>
-                                {{ ucfirst($pos) }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <input type="text" name="position" class="form-control" value="{{ request('position') }}" placeholder="Filter by position or role">
                 </div>
                 <div class="col-md-2">
                     <select name="status" class="form-select">

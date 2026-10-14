@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Basketball Tournament') }} | @yield('title', 'Basketball Tournament Management')</title>
+    <title>{{ config('app.name', 'Sports Tournament Management System') }} | @yield('title', 'Sports Tournament Management')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
@@ -64,7 +64,7 @@
 <body>
     <nav class="navbar navbar-expand-md topbar sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('dashboard') }}"><span class="brand-mark"><i class="bi bi-basketball"></i></span><span>BASKETBALL <span class="text-success">TOURNAMENT</span></span></a>
+            <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('dashboard') }}"><span class="brand-mark"><i class="bi bi-trophy"></i></span><span>SPORTS <span class="text-success">TOURNAMENT</span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -121,7 +121,7 @@
                 @endif
                 {{ $slot }}
             </main>
-            <footer class="bg-dark text-light text-center py-3"><small>&copy; {{ date('Y') }} Basketball Tournament Management System</small></footer>
+            <footer class="bg-dark text-light text-center py-3"><small>&copy; {{ date('Y') }} Sports Tournament Management System</small></footer>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -29,10 +29,10 @@ class StoreScoreRequest extends FormRequest
             'match_id' => 'required|exists:matches,id',
             'player_id' => 'required|exists:players,id',
             'team_id' => 'required|exists:sports_teams,id',
-            'score_type' => 'required|in:goal,own_goal,penalty_goal,free_kick,header,volley,assist,penalty_miss,chance_created',
-            'minute' => 'nullable|integer|min:1|max:150',
-            'second_half' => 'sometimes|integer|min:1|max:2',
-            'extra_time_minute' => 'nullable|integer|min:1|max:30',
+            'score_type' => 'required|string|max:100',
+            'points' => 'required|integer|min:0|max:65535',
+            'minute' => 'nullable|integer|min:0|max:65535',
+            'period' => 'nullable|integer|min:1|max:65535',
             'is_assisted' => 'sometimes|boolean',
             'assisted_by' => 'nullable|exists:players,id',
             'description' => 'nullable|string|max:500',
@@ -76,6 +76,7 @@ class StoreScoreRequest extends FormRequest
                         ->where('player_id', $this->input('player_id'))
                         ->where('score_type', $this->input('score_type'))
                         ->where('minute', $this->input('minute'))
+                        ->where('period', $this->input('period'))
                         ->when($scoreId, fn ($query) => $query->where('id', '!=', $scoreId))
                         ->exists();
 
@@ -101,11 +102,12 @@ class StoreScoreRequest extends FormRequest
             'player_id.exists' => 'The selected player does not exist.',
             'team_id.required' => 'Please select a team.',
             'team_id.exists' => 'The selected team does not exist.',
-            'score_type.required' => 'Please select a score type.',
-            'score_type.in' => 'The selected score type is invalid.',
-            'minute.integer' => 'The minute must be a number.',
-            'minute.min' => 'The minute must be at least 1.',
-            'minute.max' => 'The minute must be at most 150.',
+            'score_type.required' => 'Please enter an event name.',
+            'points.required' => 'Please enter the points awarded for this event.',
+            'points.integer' => 'Points must be a whole number.',
+            'points.min' => 'Points cannot be negative.',
+            'minute.integer' => 'The minute or time must be a whole number.',
+            'minute.min' => 'The minute or time cannot be negative.',
             'assisted_by.exists' => 'The selected assisting player does not exist.',
             'video_url.url' => 'Please enter a valid video URL.',
         ];

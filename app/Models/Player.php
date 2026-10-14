@@ -121,11 +121,11 @@ class Player extends Model
     }
 
     /**
-     * Get total goals scored by this player.
+     * Get the total points recorded for this player.
      */
-    public function totalGoals(): int
+    public function totalPoints(): int
     {
-        return $this->scores()->whereNotIn('score_type', ['assist', 'chance_created', 'penalty_miss'])->count();
+        return (int) $this->scores()->sum('points');
     }
 
     /**

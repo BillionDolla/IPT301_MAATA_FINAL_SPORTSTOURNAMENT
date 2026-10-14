@@ -36,9 +36,8 @@ class ScoreController extends Controller
         $scores = $query->latest('scored_at')->paginate(20)->withQueryString();
         $matches = SportsMatch::with(['homeTeam', 'awayTeam'])->latest('match_datetime')->get();
         $teams = SportsTeam::where('is_active', true)->orderBy('name')->get();
-        $scoreTypes = ['goal', 'own_goal', 'penalty_goal', 'free_kick', 'header', 'volley', 'assist', 'penalty_miss', 'chance_created'];
 
-        return view('scores.index', compact('scores', 'matches', 'teams', 'scoreTypes'));
+        return view('scores.index', compact('scores', 'matches', 'teams'));
     }
 
     /**
@@ -60,10 +59,9 @@ class ScoreController extends Controller
             ->orderBy('last_name')
             ->get();
 
-        $scoreTypes = ['goal', 'own_goal', 'penalty_goal', 'free_kick', 'header', 'volley', 'assist', 'penalty_miss', 'chance_created'];
         $matches = SportsMatch::with(['homeTeam', 'awayTeam', 'tournament'])->latest('match_datetime')->get();
 
-        return view('scores.create', compact('match', 'teams', 'players', 'scoreTypes', 'matches'));
+        return view('scores.create', compact('match', 'teams', 'players', 'matches'));
     }
 
     /**
@@ -105,10 +103,9 @@ class ScoreController extends Controller
             ->where('player_status', 'active')
             ->orderBy('last_name')
             ->get();
-        $scoreTypes = ['goal', 'own_goal', 'penalty_goal', 'free_kick', 'header', 'volley', 'assist', 'penalty_miss', 'chance_created'];
         $matches = SportsMatch::with(['homeTeam', 'awayTeam', 'tournament'])->latest('match_datetime')->get();
 
-        return view('scores.edit', compact('score', 'match', 'teams', 'players', 'scoreTypes', 'matches'));
+        return view('scores.edit', compact('score', 'match', 'teams', 'players', 'matches'));
     }
 
     /**
@@ -143,13 +140,9 @@ class ScoreController extends Controller
     private function refreshMatchScore(int $matchId): void
     {
         $match = SportsMatch::findOrFail($matchId);
-        $goalTypes = ['goal', 'penalty_goal', 'free_kick', 'header', 'volley'];
+        $homePoints = (int) $match->scores()->where('team_id', $match->home_team_id)->sum('points');
+        $awayPoints = (int) $match->scores()->where('team_id', $match->away_team_id)->sum('points');
 
-        $homeGoals = $match->scores()->where('team_id', $match->home_team_id)->whereIn('score_type', $goalTypes)->count()
-            + $match->scores()->where('team_id', $match->away_team_id)->where('score_type', 'own_goal')->count();
-        $awayGoals = $match->scores()->where('team_id', $match->away_team_id)->whereIn('score_type', $goalTypes)->count()
-            + $match->scores()->where('team_id', $match->home_team_id)->where('score_type', 'own_goal')->count();
-
-        $match->update(['home_score' => $homeGoals, 'away_score' => $awayGoals]);
+        $match->update(['home_score' => $homePoints, 'away_score' => $awayPoints]);
     }
 }

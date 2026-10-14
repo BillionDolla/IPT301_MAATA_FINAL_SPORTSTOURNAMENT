@@ -82,19 +82,7 @@ class MatchController extends Controller
             'scores.assistedBy',
         ]);
 
-        $homeGoals = $match->scores()->where('team_id', $match->home_team_id)
-            ->with('player', 'assistedBy')
-            ->orderBy('minute')
-            ->get();
-        $awayGoals = $match->scores()->where('team_id', $match->away_team_id)
-            ->with('player', 'assistedBy')
-            ->orderBy('minute')
-            ->get();
-
-        $teams = SportsTeam::where('is_active', true)->orderBy('name')->get();
-        $players = collect();
-
-        return view('matches.show', compact('match', 'homeGoals', 'awayGoals', 'teams', 'players'));
+        return view('matches.show', compact('match'));
     }
 
     /**
